@@ -3,21 +3,16 @@ import './navbar-hero.css'
 
 export default function Hero() {
   return (
-    <section className="hero">
-      <div className="hero-bg">
-        <div style={{
-          position: 'absolute', inset: 0,
-          background: 'linear-gradient(160deg, #0c1929 0%, #0284c7 40%, #0a1628 70%, #0c1929 100%)',
-        }} />
-        <div style={{
-          position: 'absolute', inset: 0,
-          backgroundImage: `
-            linear-gradient(rgba(255,193,7,0.04) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,193,7,0.04) 1px, transparent 1px)
-          `,
-          backgroundSize: '60px 60px',
-        }} />
-      </div>
+    <section className="hero" style={{ background: '#fff' }}>
+      {/* Background image */}
+      <div style={{
+        position: 'absolute', inset: 0,
+        backgroundImage: 'url(https://images.unsplash.com/photo-1509391366360-fe5ab41f176c?auto=format&fit=crop&q=80&w=1920)',
+        backgroundSize: 'cover', backgroundPosition: 'center',
+        opacity: 0.12,
+      }} />
+      {/* Gradient overlay */}
+      <div className="hero-bg" />
 
       <div className="hero-content">
         <h1 className="hero-display">
@@ -35,15 +30,15 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="btn btn-primary"
           >
+            <img src="https://cdn-icons-png.flaticon.com/24/733/733585.png" alt="" style={{ width: 18, height: 18, filter: 'brightness(10)' }} />
             Get Free Quote
           </a>
-          <Link to="/products" className="btn btn-ghost">
+          <Link to="/products" className="btn btn-outline-blue">
+            <img src="https://cdn-icons-png.flaticon.com/24/3248/3248316.png" alt="" style={{ width: 18, height: 18 }} />
             Explore Products
           </Link>
         </div>
       </div>
-
-      <div className="hero-scroll">Scroll</div>
     </section>
   )
 }

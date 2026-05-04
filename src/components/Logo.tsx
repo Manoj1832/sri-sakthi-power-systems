@@ -16,7 +16,7 @@ export default function Logo({ size = 'md' }: LogoProps) {
           fontFamily: "'Outfit', sans-serif",
           fontWeight: 800,
           fontSize: `${fontSize}px`,
-          color: '#FFFFFF',
+          color: '#001a33',
           lineHeight: 1.1,
           letterSpacing: '-0.3px',
         }}>
