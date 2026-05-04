@@ -1,0 +1,173 @@
+/* =====================================================
+   SRI SAKTHI POWER SYSTEMS — Design System
+   ===================================================== */
+
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap');
+
+/* --- CSS Variables / Tokens --- */
+:root {
+  --blue:         #0ea5e9;
+  --blue-dark:    #0284c7;
+  --blue-light:   #7dd3fc;
+  --blue-pale:    #e0f2fe;
+  --yellow:       #ffc107;
+  --yellow-dark:  #e0a800;
+  --yellow-light: #ffcd38;
+  --dark:         #001a33; /* For text and deep accents only */
+  --dark-card:    #ffffff;
+  --dark-mid:     #f0f7ff;
+  --white:        #FFFFFF;
+  --gray-light:   #f8fbff;
+  --gray-mid:     #e2efff;
+  --text-dark:    #001a33;
+  --text-muted:   #475569;
+  --text-light:   #94a3b8;
+
+  --font-main:    'Outfit', sans-serif;
+  --font-body:    'Inter', sans-serif;
+
+  --container:    1280px;
+  --pad-section:  100px;
+  --pad-h:        60px;
+  --radius:       12px;
+  --radius-sm:    6px;
+  --transition:   0.3s ease;
+  --shadow:       0 4px 24px rgba(0,0,0,0.10);
+  --shadow-lg:    0 8px 48px rgba(0,0,0,0.18);
+}
+
+/* --- Reset --- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  color: var(--text-dark);
+  background: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a  { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+/* --- Container --- */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--pad-h);
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-main);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--blue);
+  color: var(--white);
+}
+.btn-primary:hover {
+  background: var(--blue-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(14,165,233,0.4);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255,255,255,0.5);
+}
+.btn-ghost:hover {
+  border-color: var(--yellow);
+  color: var(--yellow);
+  transform: translateY(-2px);
+}
+.btn-outline-blue {
+  background: transparent;
+  color: var(--blue);
+  border: 2px solid var(--blue);
+}
+.btn-outline-blue:hover {
+  background: var(--blue);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* --- Section Label --- */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--blue);
+  margin-bottom: 16px;
+}
+.section-label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--blue);
+}
+
+/* --- Section Heading --- */
+.section-heading {
+  font-family: var(--font-main);
+  font-weight: 800;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.1;
+  color: var(--text-dark);
+}
+.section-heading.light { color: var(--white); }
+
+/* --- Utility --- */
+.text-blue    { color: var(--blue); }
+.text-yellow  { color: var(--yellow); }
+.text-muted   { color: var(--text-muted); }
+.text-white   { color: var(--white); }
+.bg-dark      { background: var(--dark); }
+.bg-light     { background: var(--gray-light); }
+.flex         { display: flex; }
+.flex-center  { display: flex; align-items: center; justify-content: center; }
+.gap-2        { gap: 8px; }
+.gap-4        { gap: 16px; }
+.gap-6        { gap: 24px; }
+.gap-8        { gap: 32px; }
+
+/* --- Animate on scroll --- */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--dark); }
+::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 3px; }
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  :root { --pad-section: 72px; --pad-h: 32px; }
+}
+@media (max-width: 768px) {
+  :root { --pad-section: 56px; --pad-h: 20px; }
+}
