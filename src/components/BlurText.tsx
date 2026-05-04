@@ -98,7 +98,7 @@ const BlurText = ({
 
         return (
           <motion.span
-            className="inline-block will-change-[transform,filter,opacity]"
+            className="blur-word inline-block will-change-[transform,filter,opacity]"
             style={{ willChange: 'transform, filter, opacity', display: 'inline-block' }}
             key={index}
             initial={fromSnapshot}

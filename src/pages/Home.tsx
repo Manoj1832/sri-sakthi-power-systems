@@ -1,7 +1,7 @@
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import About from '../components/About'
-import LogoLoop from '../components/LogoLoop'
+
 import Products from '../components/Products'
 import HowItWorks from '../components/HowItWorks'
 import Brands from '../components/Brands'
@@ -19,7 +19,7 @@ export default function Home() {
       <main>
         <Hero />
         <About />
-        <LogoLoop />
+
         <Products />
         <HowItWorks />
         <Brands />

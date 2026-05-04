@@ -36,7 +36,7 @@ const useMedia = (queries: string[], values: number[], defaultValue: number) => 
   return value;
 };
 
-const useMeasure = (): [React.RefObject<HTMLDivElement | null>, { width: number; height: number }] => {
+const useMeasure = (): [React.RefObject<HTMLDivElement>, { width: number; height: number }] => {
   const ref = useRef<HTMLDivElement>(null);
   const [size, setSize] = useState({ width: 0, height: 0 });
 
@@ -188,6 +188,7 @@ const Masonry = ({
           onMouseEnter={e => handleMouseEnter(e, item)}
           onMouseLeave={e => handleMouseLeave(e, item)}
         >
+
           <div className="masonry-item-img" style={{ backgroundImage: `url(${item.img})` }}>
             {colorShiftOnHover && (
               <div className="color-overlay" style={{
