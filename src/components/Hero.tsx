@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import BlurText from './BlurText'
 import './navbar-hero.css'
 
 export default function Hero() {
