@@ -1,5 +1,7 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Masonry from './Masonry'
+import QuoteModal from './QuoteModal'
 import './sections.css'
 
 const products = [
@@ -26,41 +28,73 @@ const masonryItems = products.map(p => ({
 }))
 
 export default function Products() {
+  const [modalOpen, setModalOpen] = useState(false)
+  const [selectedProduct, setSelectedProduct] = useState('')
+
+  const handleOpenModal = (productName: string) => {
+    setSelectedProduct(productName)
+    setModalOpen(true)
+  }
+
+  const renderProductOverlay = (item: any) => (
+    <div className="masonry-item-overlay">
+      <h4>{item.label}</h4>
+      <p style={{ marginBottom: '12px' }}>{item.desc}</p>
+      <button 
+        className="btn btn-primary" 
+        style={{ padding: '6px 12px', fontSize: '13px', width: '100%', justifyContent: 'center' }}
+        onClick={(e) => { e.stopPropagation(); handleOpenModal(item.label); }}
+      >
+        <img src="https://cdn-icons-png.flaticon.com/24/733/733585.png" alt="" style={{ width: 14, height: 14 }} />
+        Get Quote
+      </button>
+    </div>
+  )
+
   return (
-    <section className="products-section" id="products">
-      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-        {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: '56px' }} className="fade-up">
-          <p className="section-label" style={{ justifyContent: 'center' }}>What We Offer</p>
-          <h2 className="section-heading">
-            Complete Solar <span className="text-blue">Product Range</span>
-          </h2>
-          <p style={{ color: 'var(--text-muted)', fontSize: '17px', maxWidth: '600px', margin: '16px auto 0', lineHeight: '1.7' }}>
-            From solar panels and inverters to complete power plant installations —
-            we supply, install, and maintain everything for your solar journey.
-          </p>
-        </div>
+    <>
+      <section className="products-section" id="products">
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+          {/* Header */}
+          <div style={{ textAlign: 'center', marginBottom: '56px' }} className="fade-up">
+            <p className="section-label" style={{ justifyContent: 'center' }}>What We Offer</p>
+            <h2 className="section-heading">
+              Complete Solar <span className="text-blue">Product Range</span>
+            </h2>
+            <p style={{ color: 'var(--text-muted)', fontSize: '17px', maxWidth: '600px', margin: '16px auto 0', lineHeight: '1.7' }}>
+              From solar panels and inverters to complete power plant installations —
+              we supply, install, and maintain everything for your solar journey.
+            </p>
+          </div>
 
-        {/* Masonry Grid */}
-        <Masonry
-          items={masonryItems}
-          ease="power3.out"
-          duration={0.6}
-          stagger={0.05}
-          animateFrom="bottom"
-          scaleOnHover={true}
-          hoverScale={0.95}
-          blurToFocus={true}
-          colorShiftOnHover={false}
-        />
+          {/* Masonry Grid */}
+          <Masonry
+            items={masonryItems}
+            ease="power3.out"
+            duration={0.6}
+            stagger={0.05}
+            animateFrom="bottom"
+            scaleOnHover={true}
+            hoverScale={0.95}
+            blurToFocus={true}
+            colorShiftOnHover={false}
+            renderOverlay={renderProductOverlay}
+          />
 
-        {/* CTA */}
-        <div style={{ textAlign: 'center', marginTop: '48px' }} className="fade-up">
-          <Link to="/products" className="btn btn-primary">
-            View All Products
-          </Link>
+          {/* CTA */}
+          <div style={{ textAlign: 'center', marginTop: '48px' }} className="fade-up">
+            <Link to="/products" className="btn btn-outline-blue">
+              View All Products
+            </Link>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <QuoteModal 
+        isOpen={modalOpen} 
+        onClose={() => setModalOpen(false)} 
+        productName={selectedProduct} 
+      />
+    </>
   )
 }
