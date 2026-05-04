@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import CtaBanner from '../components/CtaBanner'
+
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const defaultProjects = [
@@ -130,7 +130,7 @@ export default function ProjectsPage() {
             <p className="section-label" style={{ justifyContent: 'center' }}>Our Portfolio</p>
             <h1 className="section-heading light">Recent Projects</h1>
             <p style={{ color: 'rgba(255,255,255,0.6)', marginTop: '16px', fontSize: '17px', maxWidth: '600px', margin: '16px auto 0' }}>
-              Take a look at some of our successful solar installations across Erode and surrounding areas.
+              Take a look at some of our successful solar installations across Tamil Nadu and surrounding areas.
             </p>
           </div>
         </div>
@@ -155,7 +155,7 @@ export default function ProjectsPage() {
           </div>
         </section>
 
-        <CtaBanner />
+
       </main>
       <Footer />
     </>

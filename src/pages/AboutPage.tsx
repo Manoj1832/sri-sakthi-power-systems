@@ -1,7 +1,7 @@
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import About from '../components/About'
-import CtaBanner from '../components/CtaBanner'
+
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 export default function AboutPage() {
@@ -21,7 +21,7 @@ export default function AboutPage() {
           </div>
         </div>
         <About />
-        <CtaBanner />
+
       </main>
       <Footer />
     </>

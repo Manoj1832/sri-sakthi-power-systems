@@ -7,20 +7,25 @@ export default function Hero() {
       {/* Background image */}
       <div style={{
         position: 'absolute', inset: 0,
-        backgroundImage: 'url(https://images.unsplash.com/photo-1509391366360-fe5ab41f176c?auto=format&fit=crop&q=80&w=1920)',
+        backgroundImage: 'url(https://images.unsplash.com/photo-1588508065123-287b28e01397?auto=format&fit=crop&q=80&w=1920)',
         backgroundSize: 'cover', backgroundPosition: 'center',
-        opacity: 0.12,
+        opacity: 0.25,
       }} />
       {/* Gradient overlay */}
       <div className="hero-bg" />
 
       <div className="hero-content">
-        <h1 className="hero-display">
-          SOLAR<br />
-          <em>ENERGY</em>
-        </h1>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <BlurText
+            text="SOLAR ENERGY"
+            className="hero-display"
+            delay={150}
+            animateBy="words"
+            direction="top"
+          />
+        </div>
         <p className="hero-sub">
-          Powering Erode one rooftop at a time. OnGrid, Hybrid & Off-Grid solar solutions
+          Powering Tamil Nadu one rooftop at a time. OnGrid, Hybrid & Off-Grid solar solutions
           with top brands — Kirloskar, Adani, Waaree, Growatt & more.
         </p>
         <div className="hero-actions">

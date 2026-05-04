@@ -66,8 +66,8 @@ const defaultTestimonials: Testimonial[] = [
   {
     id: '1',
     name: 'Rajesh Kumar',
-    location: 'Erode, Tamil Nadu',
-    quote: 'Excellent service! Sri Sakthi Power Systems installed a 5kW OnGrid system for my home. My electricity bill dropped from ₹3,500 to just ₹200 per month. Highly recommended for anyone in Erode!',
+    location: 'Tamil Nadu',
+    quote: 'Excellent service! Sri Sakthi Power Systems installed a 5kW OnGrid system for my home. My electricity bill dropped from ₹3,500 to just ₹200 per month. Highly recommended!',
     rating: 5,
     avatar: 'R',
   },

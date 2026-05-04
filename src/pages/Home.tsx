@@ -6,7 +6,7 @@ import Products from '../components/Products'
 import HowItWorks from '../components/HowItWorks'
 import Brands from '../components/Brands'
 import Testimonials from '../components/Testimonials'
-import CtaBanner from '../components/CtaBanner'
+
 import Footer from '../components/Footer'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
@@ -24,7 +24,7 @@ export default function Home() {
         <HowItWorks />
         <Brands />
         <Testimonials />
-        <CtaBanner />
+
       </main>
       <Footer />
     </>

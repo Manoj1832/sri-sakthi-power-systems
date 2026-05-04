@@ -5,20 +5,19 @@ import QuoteModal from './QuoteModal'
 import './sections.css'
 
 const products = [
-  { id: '1',  name: 'Solar Panels',     desc: 'Mono & Poly crystalline panels from top brands',     img: 'https://images.unsplash.com/photo-1509391366360-fe5ab41f176c?auto=format&fit=crop&q=80&w=800',   height: 500 },
+  { id: '1',  name: 'Solar Panels',     desc: 'Mono & Poly crystalline panels from top brands',     img: 'https://images.unsplash.com/photo-1509391366360-fe5ab41f176c?auto=format&fit=crop&q=80&w=800', height: 500 },
   { id: '2',  name: 'Solar Inverters',   desc: 'OnGrid, Hybrid & Off-Grid inverters',               img: 'https://images.unsplash.com/photo-1624397558428-7528c6d2013e?auto=format&fit=crop&q=80&w=800', height: 350 },
-  { id: '3',  name: 'ACDB / DCDB',       desc: 'AC & DC distribution boxes for plant safety',       img: 'https://images.unsplash.com/photo-1558449028-b53c3e9789a0?auto=format&fit=crop&q=80&w=800',   height: 400 },
-  { id: '4',  name: 'Earthing Kit',      desc: 'Complete earthing solutions for protection',         img: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=800', height: 450 },
-  { id: '5',  name: 'Structure',         desc: 'MS & GI mounting structures for all roof types',     img: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&q=80&w=800', height: 380 },
-  { id: '6',  name: 'OnGrid Plant',      desc: 'Grid-tied solar power plant with net metering',     img: 'https://images.unsplash.com/photo-1509391366360-fe5ab41f176c?auto=format&fit=crop&q=80&w=800', height: 520 },
-  { id: '7',  name: 'Hybrid Plant',      desc: 'Solar + battery backup hybrid power systems',       img: 'https://images.unsplash.com/photo-1611365892117-00ac5ef43c90?auto=format&fit=crop&q=80&w=800', height: 360 },
-  { id: '8',  name: 'Off-Grid Plant',    desc: 'Complete off-grid solar for remote locations',      img: 'https://images.unsplash.com/photo-1548337138-e87d889cc369?auto=format&fit=crop&q=80&w=800',   height: 440 },
-  { id: '9',  name: 'Water Heater',      desc: 'Solar water heating for home & commercial use',     img: 'https://images.unsplash.com/photo-1523755231516-e43fd2e8d1da?auto=format&fit=crop&q=80&w=800', height: 380 },
-  { id: '10', name: 'Solar Pumps',       desc: 'AC & DC motor solar pumping systems',               img: 'https://images.unsplash.com/photo-1560472355-5367c3b6a13e?auto=format&fit=crop&q=80&w=800',   height: 460 },
+  { id: '3',  name: 'ACDB / DCDB',       desc: 'AC & DC distribution boxes for plant safety',       img: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&q=80&w=800', height: 400 },
+  { id: '4',  name: 'Earthing Kit',      desc: 'Complete earthing solutions for protection',         img: 'https://images.unsplash.com/photo-1558449028-b53c3e9789a0?auto=format&fit=crop&q=80&w=800', height: 450 },
+  { id: '5',  name: 'Structure',         desc: 'MS & GI mounting structures for all roof types',     img: 'https://images.unsplash.com/photo-1611365892117-00ac5ef43c90?auto=format&fit=crop&q=80&w=800', height: 380 },
+  { id: '6',  name: 'OnGrid Plant',      desc: 'Grid-tied solar power plant with net metering',     img: 'https://images.unsplash.com/photo-1548337138-e87d889cc369?auto=format&fit=crop&q=80&w=800', height: 520 },
+  { id: '7',  name: 'Hybrid Plant',      desc: 'Solar + battery backup hybrid power systems',       img: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=800', height: 360 },
+  { id: '8',  name: 'Off-Grid Plant',    desc: 'Complete off-grid solar for remote locations',      img: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&q=80&w=800', height: 440 },
+  { id: '9',  name: 'Water Heater',      desc: 'Solar water heating for home & commercial use',     img: 'https://images.unsplash.com/photo-1615799998603-7c6270a45196?auto=format&fit=crop&q=80&w=800', height: 380 },
+  { id: '10', name: 'Solar Pumps',       desc: 'AC & DC motor solar pumping systems',               img: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=800', height: 460 },
   { id: '11', name: 'Street Light',      desc: 'Integrated solar street lighting systems',          img: 'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&q=80&w=800', height: 500 },
-  { id: '12', name: 'Solar Studs',       desc: 'Road safety solar stud lights',                     img: 'https://images.unsplash.com/photo-1508549827494-08ac60a77800?auto=format&fit=crop&q=80&w=800', height: 320 },
+  { id: '12', name: 'Solar Studs',       desc: 'Road safety solar stud lights',                     img: 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=800', height: 320 },
 ]
-
 const masonryItems = products.map(p => ({
   id: p.id,
   img: p.img,

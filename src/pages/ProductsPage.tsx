@@ -2,7 +2,7 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Products from '../components/Products'
 import Brands from '../components/Brands'
-import CtaBanner from '../components/CtaBanner'
+
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 export default function ProductsPage() {
@@ -24,7 +24,7 @@ export default function ProductsPage() {
           </div>
           <Products />
           <Brands />
-          <CtaBanner />
+
         </div>
       </main>
       <Footer />

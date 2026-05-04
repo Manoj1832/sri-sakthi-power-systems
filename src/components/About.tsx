@@ -21,11 +21,11 @@ export default function About() {
           <div className="fade-up">
             <p className="section-label">About Us</p>
             <h2 className="section-heading">
-              Powering Erode Through<br />
-              <span className="text-blue">Contemporary Solar Solutions</span>
+Powering Tamil Nadu Through<br />
+              <span className="text-blue">Contemporary Solar</span> Solutions
             </h2>
             <p className="about-body">
-              Sri Sakthi Power Systems is Erode's trusted solar energy partner
+              Sri Sakthi Power Systems is a trusted solar energy partner
               based in Thindal. We are a GST-registered company (GSTIN: 33KGKPS8891F2ZI)
               specialising in complete solar solutions — from consultation and design
               to installation and after-sales support.

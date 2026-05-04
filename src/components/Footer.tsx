@@ -26,7 +26,7 @@ export default function Footer() {
               <Logo size="md" />
             </div>
             <p className="footer-desc">
-              Your trusted solar energy partner in Erode. We supply, install, and
+              Your trusted solar energy partner. We supply, install, and
               maintain solar systems for homes, businesses, and industries across
               Tamil Nadu.
             </p>
