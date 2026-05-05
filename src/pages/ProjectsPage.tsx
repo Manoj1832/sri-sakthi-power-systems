@@ -1,12 +1,14 @@
-import { useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useState, useEffect, useMemo } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import CircularGallery from '../components/CircularGallery'
-
+import ProjectStats from '../components/ProjectStats'
+import ProjectFilters, { type ProjectFilter } from '../components/ProjectFilters'
+import ProjectCard, { type Project } from '../components/ProjectCard'
+import ProjectDrawer from '../components/ProjectDrawer'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
-const defaultProjects = [
+const defaultProjects: Project[] = [
   {
     id: '1',
     title: '5kW On-Grid Solar System',
@@ -94,7 +96,7 @@ const defaultProjects = [
   },
 ]
 
-function loadProjects() {
+function loadProjects(): Project[] {
   const stored = localStorage.getItem('ssp_projects')
   if (stored) {
     try { return JSON.parse(stored) } catch { return defaultProjects }
@@ -102,7 +104,7 @@ function loadProjects() {
   return defaultProjects
 }
 
-function saveProjects(projects: typeof defaultProjects) {
+function saveProjects(projects: Project[]) {
   localStorage.setItem('ssp_projects', JSON.stringify(projects))
 }
 
@@ -110,7 +112,10 @@ export { loadProjects, saveProjects }
 
 export default function ProjectsPage() {
   useScrollAnimation()
-  const [projects, setProjects] = useState(loadProjects())
+  const [projects, setProjects] = useState<Project[]>(loadProjects())
+  const [activeFilter, setActiveFilter] = useState<ProjectFilter>('All')
+  const [searchQuery, setSearchQuery] = useState('')
+  const [drawerProject, setDrawerProject] = useState<Project | null>(null)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -123,45 +128,104 @@ export default function ProjectsPage() {
     }
   }, [])
 
-  const galleryItems = projects.map((p: any) => ({
-    image: p.image,
-    text: p.title,
-    id: p.id
-  }))
+  const filteredProjects = useMemo(() => {
+    let filtered = projects
 
-  const handleItemClick = (item: any) => {
-    if (item && item.id) {
-      navigate(`/projects/${item.id}`)
+    if (activeFilter !== 'All') {
+      filtered = filtered.filter(p => p.type === activeFilter)
     }
+
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase()
+      filtered = filtered.filter(p => 
+        p.title.toLowerCase().includes(query) || 
+        p.location.toLowerCase().includes(query)
+      )
+    }
+
+    return filtered
+  }, [projects, activeFilter, searchQuery])
+
+  const handleCardClick = (project: Project) => {
+    setDrawerProject(project)
   }
 
   return (
     <>
       <Navbar />
       <main style={{ paddingTop: '76px', background: 'var(--dark)' }}>
-        <div style={{ background: 'var(--dark)', padding: '80px 0 20px', textAlign: 'center' }}>
+        <div style={{ background: 'var(--dark)', padding: '80px 0 40px', textAlign: 'center' }}>
           <div className="container">
             <p className="section-label fade-up" style={{ justifyContent: 'center' }}>Projects</p>
-            <h1 className="section-heading light fade-up" style={{ transitionDelay: '0.1s' }}>Recent Projects</h1>
+            <h1 className="section-heading light fade-up" style={{ transitionDelay: '0.1s' }}>Our Projects</h1>
             <p className="fade-in" style={{ color: 'rgba(255,255,255,0.6)', marginTop: '16px', fontSize: '17px', maxWidth: '600px', margin: '16px auto 0', transitionDelay: '0.2s' }}>
-              Swipe left or right to explore. Tap a card to view detailed information.
+              Explore our completed solar installations across Tamil Nadu
             </p>
           </div>
         </div>
 
-        <section style={{ position: 'relative', width: '100%', height: '70vh', minHeight: '500px', background: 'var(--dark)' }}>
-          <CircularGallery 
-            items={galleryItems} 
-            bend={3} 
-            textColor="#ffffff" 
-            borderRadius={0.05} 
-            scrollEase={0.02} 
-            onItemClick={handleItemClick}
-          />
-        </section>
+        <ProjectStats projects={projects} />
 
+        <section style={{ background: 'var(--gray-light)', padding: '60px 0' }}>
+          <div className="container">
+            <div className="project-search fade-up">
+              <div className="project-search-input">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input
+                  type="text"
+                  placeholder="Search by project name or location..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  aria-label="Search projects"
+                />
+              </div>
+            </div>
+
+            <ProjectFilters
+              activeFilter={activeFilter}
+              onFilterChange={setActiveFilter}
+            />
+
+            <div className="project-cards-grid">
+              {filteredProjects.length > 0 ? (
+                filteredProjects.map((project, index) => (
+                  <div
+                    key={project.id}
+                    className="fade-up"
+                    style={{ transitionDelay: `${index * 0.05}s` }}
+                  >
+                    <ProjectCard
+                      project={project}
+                      onClick={() => handleCardClick(project)}
+                    />
+                  </div>
+                ))
+              ) : (
+                <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '60px 20px' }}>
+                  <p style={{ fontSize: '18px', color: 'var(--text-muted)' }}>No projects found matching your criteria.</p>
+                  <button
+                    className="btn btn-outline-blue"
+                    style={{ marginTop: '16px' }}
+                    onClick={() => { setActiveFilter('All'); setSearchQuery('') }}
+                  >
+                    Clear Filters
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
+
+      <ProjectDrawer
+        project={drawerProject}
+        isOpen={!!drawerProject}
+        onClose={() => setDrawerProject(null)}
+      />
     </>
   )
 }
