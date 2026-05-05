@@ -5,18 +5,18 @@ import QuoteModal from './QuoteModal'
 import './sections.css'
 
 const products = [
-  { id: '1',  name: 'Solar Panels',     desc: 'Mono & Poly crystalline panels from top brands',     img: '/panel.jpeg', height: 500 },
-  { id: '2',  name: 'Solar Inverters',   desc: 'OnGrid, Hybrid & Off-Grid inverters',               img: '/solar hybrid inverter.png', height: 350 },
-  { id: '3',  name: 'ACDB / DCDB',       desc: 'AC & DC distribution boxes for plant safety',       img: '/acdb-dcdb.jpg', height: 400 },
-  { id: '4',  name: 'Earthing Kit',      desc: 'Complete earthing solutions for protection',         img: '/earthing kit.jpeg', height: 450 },
-  { id: '5',  name: 'Structure',         desc: 'MS & GI mounting structures for all roof types',     img: '/shards.jpeg', height: 380 },
-  { id: '6',  name: 'OnGrid Plant',      desc: 'Grid-tied solar power plant with net metering',     img: '/on grid.webp', height: 520 },
-  { id: '7',  name: 'Hybrid Plant',      desc: 'Solar + battery backup hybrid power systems',       img: '/hybrid.png', height: 360 },
-  { id: '8',  name: 'Off-Grid Plant',    desc: 'Complete off-grid solar for remote locations',      img: '/image.png', height: 440 },
-  { id: '9',  name: 'Water Heater',      desc: 'Solar water heating for home & commercial use',     img: '/water heater.jpeg', height: 380 },
-  { id: '10', name: 'Solar Pumps',       desc: 'AC & DC motor solar pumping systems',               img: '/solar pump.jpeg', height: 460 },
-  { id: '11', name: 'Street Light',      desc: 'Integrated solar street lighting systems',          img: '/street light.jpeg', height: 500 },
-  { id: '12', name: 'Solar Studs',       desc: 'Road safety solar stud lights',                     img: '/panel2.jpeg', height: 320 },
+  { id: '1',  name: 'Solar Panels',     desc: 'Mono & Poly crystalline panels from top brands',     img: 'https://img.sanishtech.com/u/57bf7584090e5b3501a07228afab1351.jpeg', height: 500 },
+  { id: '2',  name: 'Solar Inverters',   desc: 'OnGrid, Hybrid & Off-Grid inverters',               img: 'https://img.sanishtech.com/u/1d3bace2fce5f7fa189d1b88e311f6fa.png', height: 350 },
+  { id: '3',  name: 'ACDB / DCDB',       desc: 'AC & DC distribution boxes for plant safety',       img: 'https://img.sanishtech.com/u/532ba90061d856d3e26e09528f8f69f6.jpg', height: 400 },
+  { id: '4',  name: 'Earthing Kit',      desc: 'Complete earthing solutions for protection',         img: 'https://img.sanishtech.com/u/f6b75be3e4f40206e80b8c16bf45a3f6.jpeg', height: 450 },
+  { id: '5',  name: 'Structure',         desc: 'MS & GI mounting structures for all roof types',     img: 'https://images.unsplash.com/photo-1611365892117-00ac5ef43c90?auto=format&fit=crop&q=80&w=800', height: 380 },
+  { id: '6',  name: 'OnGrid Plant',      desc: 'Grid-tied solar power plant with net metering',     img: 'https://images.unsplash.com/photo-1548337138-e87d889cc369?auto=format&fit=crop&q=80&w=800', height: 520 },
+  { id: '7',  name: 'Hybrid Plant',      desc: 'Solar + battery backup hybrid power systems',       img: 'https://img.sanishtech.com/u/af68b6c1f6493d4cb0b9ac2f05c68227.png', height: 360 },
+  { id: '8',  name: 'Off-Grid Plant',    desc: 'Complete off-grid solar for remote locations',      img: 'https://img.sanishtech.com/u/31af0d48e1b0ad126454526e937c4bdf.jpeg', height: 440 },
+  { id: '9',  name: 'Water Heater',      desc: 'Solar water heating for home & commercial use',     img: 'https://img.sanishtech.com/u/da98819edc4a8fad61600bfea17ed752.jpeg', height: 380 },
+  { id: '10', name: 'Solar Pumps',       desc: 'AC & DC motor solar pumping systems',               img: 'https://img.sanishtech.com/u/2ee79e1e60e5fe1362ed68da7c4d414c.jpeg', height: 460 },
+  { id: '11', name: 'Street Light',      desc: 'Integrated solar street lighting systems',          img: 'https://img.sanishtech.com/u/89cdaaad5fa7b512efc9d33e67833cad.jpeg', height: 500 },
+  { id: '12', name: 'Solar Studs',       desc: 'Road safety solar stud lights',                     img: 'https://img.sanishtech.com/u/82a0f7d20062bbc5819ee3bcbe4eccfb.jpeg', height: 320 },
 ]
 const masonryItems = products.map(p => ({
   id: p.id,
@@ -24,7 +24,7 @@ const masonryItems = products.map(p => ({
   height: p.height,
   label: p.name,
   desc: p.desc,
-  contain: !p.img.includes('unsplash') && !p.img.includes('on grid') && !p.img.includes('premium-instalation')
+  contain: p.img.includes('sanishtech.com') || p.img.includes('png')
 }))
 
 export default function Products() {

@@ -6,7 +6,7 @@ const steps = [
   {
     num: 'Step 01', title: 'Site Survey',
     desc: 'We visit your site, assess roof area, shading, and energy needs for free.',
-    img: '/image.png',
+    img: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=600',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="28" height="28">
         <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
@@ -16,7 +16,7 @@ const steps = [
   {
     num: 'Step 02', title: 'System Design',
     desc: 'Our experts design the optimal solar system layout and provide a detailed quote.',
-    img: '/shards.jpeg',
+    img: 'https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&q=80&w=600',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="28" height="28">
         <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
@@ -26,7 +26,7 @@ const steps = [
   {
     num: 'Step 03', title: 'Installation',
     desc: 'Certified technicians install the complete system with quality assurance.',
-    img: '/premium-instalation.jpg',
+    img: 'https://img.sanishtech.com/u/c3ad705c066a2634e55e35d98f95f426.webp',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="28" height="28">
         <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
@@ -36,7 +36,7 @@ const steps = [
   {
     num: 'Step 04', title: 'Handover',
     desc: 'We commission the system, get approvals, and hand over with full support.',
-    img: '/on grid.webp',
+    img: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&q=80&w=600',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="28" height="28">
         <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
