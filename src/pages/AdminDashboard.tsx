@@ -117,6 +117,7 @@ export default function AdminDashboard() {
   const { isAuthenticated, logout } = useAuth()
   const navigate = useNavigate()
   const [activeTab, setActiveTab] = useState<Tab>('projects')
+  const [sidebarOpen, setSidebarOpen] = useState(false)
 
   const [projects, setProjects] = useState<Project[]>(loadProjects())
   const [products, setProducts] = useState<Product[]>(loadProducts())
@@ -130,13 +131,20 @@ export default function AdminDashboard() {
     if (!isAuthenticated) navigate('/admin')
   }, [isAuthenticated, navigate])
 
+  useEffect(() => {
+    const meta = document.querySelector('meta[name="robots"]')
+    if (meta) meta.setAttribute('content', 'noindex, nofollow')
+    return () => {
+      if (meta) meta.setAttribute('content', 'index, follow')
+    }
+  }, [])
+
   if (!isAuthenticated) return null
 
   const notifyUpdate = () => {
     window.dispatchEvent(new Event('ssp_data_update'))
   }
 
-  // Project CRUD
   const handleSaveProject = (data: Partial<Project>) => {
     if (editingItem) {
       const updated = projects.map(p => p.id === editingItem.id ? { ...p, ...data } : p)
@@ -173,7 +181,6 @@ export default function AdminDashboard() {
     }
   }
 
-  // Product CRUD
   const handleSaveProduct = (data: Partial<Product>) => {
     if (editingItem) {
       const updated = products.map(p => p.id === editingItem.id ? { ...p, ...data } : p)
@@ -199,7 +206,6 @@ export default function AdminDashboard() {
     }
   }
 
-  // Brand CRUD
   const handleSaveBrand = (data: Partial<Brand>) => {
     if (editingItem) {
       const updated = brands.map(b => b.id === editingItem.id ? { ...b, ...data } : b)
@@ -230,7 +236,6 @@ export default function AdminDashboard() {
     }
   }
 
-  // Testimonial CRUD
   const handleSaveTestimonial = (data: Partial<Testimonial>) => {
     if (editingItem) {
       const updated = testimonials.map(t => t.id === editingItem.id ? { ...t, ...data } : t)
@@ -256,169 +261,202 @@ export default function AdminDashboard() {
     }
   }
 
-  const tabs: { key: Tab; label: string }[] = [
-    { key: 'projects', label: 'Projects' },
-    { key: 'products', label: 'Products' },
-    { key: 'testimonials', label: 'Testimonials' },
-    { key: 'brands', label: 'Brands' },
+  const tabs: { key: Tab; label: string; icon: string }[] = [
+    { key: 'projects', label: 'Projects', icon: 'M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z' },
+    { key: 'products', label: 'Products', icon: 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4' },
+    { key: 'testimonials', label: 'Testimonials', icon: 'M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z' },
+    { key: 'brands', label: 'Brands', icon: 'M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z' },
   ]
+
+  const handleLogout = () => {
+    logout()
+    navigate('/')
+  }
 
   return (
     <div className="admin-layout">
-      <aside className="admin-sidebar">
-        <div className="admin-sidebar-logo">
-          <span>SSP Admin</span>
-          <small>Dashboard</small>
-        </div>
-        {tabs.map(t => (
-          <button key={t.key} className={`admin-nav-item${activeTab === t.key ? ' active' : ''}`} onClick={() => setActiveTab(t.key)}>
-            {t.key === 'projects' ? '📁' : t.key === 'products' ? '📦' : t.key === 'brands' ? '🏷️' : '⭐'} {t.label}
+      {sidebarOpen && <div className="admin-overlay" onClick={() => setSidebarOpen(false)} />}
+
+      <aside className={`admin-sidebar${sidebarOpen ? ' open' : ''}`}>
+        <div className="admin-sidebar-header">
+          <div className="admin-sidebar-logo">
+            <img src="/logo.png" alt="SSP Logo" className="admin-logo-img" />
+            <div>
+              <span>SSP Admin</span>
+              <small>Dashboard</small>
+            </div>
+          </div>
+          <button className="admin-close-btn" onClick={() => setSidebarOpen(false)} aria-label="Close sidebar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
           </button>
-        ))}
-        <div style={{ marginTop: 'auto', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-          <button className="admin-nav-item" onClick={() => { logout(); navigate('/') }}>
-            🚪 Logout
+        </div>
+
+        <nav className="admin-nav" aria-label="Admin navigation">
+          {tabs.map(t => (
+            <button key={t.key} className={`admin-nav-item${activeTab === t.key ? ' active' : ''}`} onClick={() => { setActiveTab(t.key); setSidebarOpen(false) }}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d={t.icon}></path></svg>
+              {t.label}
+            </button>
+          ))}
+        </nav>
+
+        <div className="admin-sidebar-footer">
+          <button className="admin-nav-item admin-logout-btn" onClick={handleLogout}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+            Logout
           </button>
         </div>
       </aside>
 
-      <main className="admin-main">
-        <div className="admin-header">
-          <h1>{activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}</h1>
-          <button className="btn btn-primary" onClick={() => { setEditingItem(null); setShowModal(true) }}>
-            + Add New
+      <div className="admin-content">
+        <header className="admin-navbar" role="banner">
+          <button className="admin-hamburger" onClick={() => setSidebarOpen(true)} aria-label="Open menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
           </button>
-        </div>
-
-        {activeTab === 'projects' && (
-          <div className="admin-table">
-            <table>
-              <thead>
-                <tr>
-                  <th>Title</th>
-                  <th>Location</th>
-                  <th>Capacity</th>
-                  <th>Type</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {projects.map(p => (
-                  <tr key={p.id}>
-                    <td><strong>{p.title}</strong></td>
-                    <td>{p.location}</td>
-                    <td>{p.capacity}</td>
-                    <td>{p.type}</td>
-                    <td>
-                      <div className="admin-actions">
-                        <button className="admin-btn-edit" onClick={() => { setEditingItem(p); setShowModal(true) }}>Edit</button>
-                        <button className="admin-btn-delete" onClick={() => handleDeleteProject(p.id)}>Delete</button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <h1>{activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}</h1>
+          <div className="admin-navbar-actions">
+            <a href="/" className="admin-view-site-btn" target="_blank" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              View Site
+            </a>
+            <button className="btn btn-primary" onClick={() => { setEditingItem(null); setShowModal(true) }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              Add New
+            </button>
           </div>
-        )}
+        </header>
 
-        {activeTab === 'products' && (
-          <div className="admin-table">
-            <table>
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Description</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {products.map(p => (
-                  <tr key={p.id}>
-                    <td><strong>{p.name}</strong></td>
-                    <td>{p.description}</td>
-                    <td>
-                      <div className="admin-actions">
-                        <button className="admin-btn-edit" onClick={() => { setEditingItem(p); setShowModal(true) }}>Edit</button>
-                        <button className="admin-btn-delete" onClick={() => handleDeleteProduct(p.id)}>Delete</button>
-                      </div>
-                    </td>
+        <main className="admin-main" role="main">
+          {activeTab === 'projects' && (
+            <div className="admin-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Location</th>
+                    <th>Capacity</th>
+                    <th>Type</th>
+                    <th>Actions</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
+                </thead>
+                <tbody>
+                  {projects.map(p => (
+                    <tr key={p.id}>
+                      <td><strong>{p.title}</strong></td>
+                      <td>{p.location}</td>
+                      <td>{p.capacity}</td>
+                      <td>{p.type}</td>
+                      <td>
+                        <div className="admin-actions">
+                          <button className="admin-btn-edit" onClick={() => { setEditingItem(p); setShowModal(true) }}>Edit</button>
+                          <button className="admin-btn-delete" onClick={() => handleDeleteProject(p.id)}>Delete</button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
 
-        {activeTab === 'testimonials' && (
-          <div className="admin-table">
-            <table>
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Location</th>
-                  <th>Rating</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {testimonials.map(t => (
-                  <tr key={t.id}>
-                    <td><strong>{t.name}</strong></td>
-                    <td>{t.location}</td>
-                    <td>{'★'.repeat(t.rating)}{'☆'.repeat(5 - t.rating)}</td>
-                    <td>
-                      <div className="admin-actions">
-                        <button className="admin-btn-edit" onClick={() => { setEditingItem(t); setShowModal(true) }}>Edit</button>
-                        <button className="admin-btn-delete" onClick={() => handleDeleteTestimonial(t.id)}>Delete</button>
-                      </div>
-                    </td>
+          {activeTab === 'products' && (
+            <div className="admin-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Actions</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
+                </thead>
+                <tbody>
+                  {products.map(p => (
+                    <tr key={p.id}>
+                      <td><strong>{p.name}</strong></td>
+                      <td>{p.description}</td>
+                      <td>
+                        <div className="admin-actions">
+                          <button className="admin-btn-edit" onClick={() => { setEditingItem(p); setShowModal(true) }}>Edit</button>
+                          <button className="admin-btn-delete" onClick={() => handleDeleteProduct(p.id)}>Delete</button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
 
-        {activeTab === 'brands' && (
-          <div className="admin-table">
-            <table>
-              <thead>
-                <tr>
-                  <th>Logo</th>
-                  <th>Name</th>
-                  <th>Category</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {brands.map(b => (
-                  <tr key={b.id}>
-                    <td><img src={b.image} alt={b.name} className="admin-brand-thumb" /></td>
-                    <td><strong>{b.name}</strong></td>
-                    <td>{b.category === 'panel' ? 'Solar Panel' : 'Inverter'}</td>
-                    <td>
-                      <div className="admin-actions">
-                        <button className="admin-btn-edit" onClick={() => { setEditingItem(b); setShowModal(true) }}>Edit</button>
-                        <button className="admin-btn-delete" onClick={() => handleDeleteBrand(b.id)}>Delete</button>
-                      </div>
-                    </td>
+          {activeTab === 'testimonials' && (
+            <div className="admin-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Rating</th>
+                    <th>Actions</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
+                </thead>
+                <tbody>
+                  {testimonials.map(t => (
+                    <tr key={t.id}>
+                      <td><strong>{t.name}</strong></td>
+                      <td>{t.location}</td>
+                      <td aria-label={`Rating: ${t.rating} out of 5 stars`}>{'★'.repeat(t.rating)}{'☆'.repeat(5 - t.rating)}</td>
+                      <td>
+                        <div className="admin-actions">
+                          <button className="admin-btn-edit" onClick={() => { setEditingItem(t); setShowModal(true) }}>Edit</button>
+                          <button className="admin-btn-delete" onClick={() => handleDeleteTestimonial(t.id)}>Delete</button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
 
-        {showModal && (
-          <AdminModal
-            tab={activeTab}
-            editingItem={editingItem}
-            onSave={activeTab === 'projects' ? handleSaveProject : activeTab === 'products' ? handleSaveProduct : activeTab === 'brands' ? handleSaveBrand : handleSaveTestimonial}
-            onClose={() => { setShowModal(false); setEditingItem(null) }}
-          />
-        )}
-      </main>
+          {activeTab === 'brands' && (
+            <div className="admin-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Logo</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {brands.map(b => (
+                    <tr key={b.id}>
+                      <td><img src={b.image} alt={`${b.name} logo`} className="admin-brand-thumb" loading="lazy" /></td>
+                      <td><strong>{b.name}</strong></td>
+                      <td>{b.category === 'panel' ? 'Solar Panel' : 'Inverter'}</td>
+                      <td>
+                        <div className="admin-actions">
+                          <button className="admin-btn-edit" onClick={() => { setEditingItem(b); setShowModal(true) }}>Edit</button>
+                          <button className="admin-btn-delete" onClick={() => handleDeleteBrand(b.id)}>Delete</button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+
+          {showModal && (
+            <AdminModal
+              tab={activeTab}
+              editingItem={editingItem}
+              onSave={activeTab === 'projects' ? handleSaveProject : activeTab === 'products' ? handleSaveProduct : activeTab === 'brands' ? handleSaveBrand : handleSaveTestimonial}
+              onClose={() => { setShowModal(false); setEditingItem(null) }}
+            />
+          )}
+        </main>
+      </div>
     </div>
   )
 }
@@ -441,45 +479,45 @@ function AdminModal({ tab, editingItem, onSave, onClose }: {
   }
 
   return (
-    <div className="admin-modal-overlay" onClick={onClose}>
+    <div className="admin-modal-overlay" onClick={onClose} role="dialog" aria-modal="true" aria-labelledby="modal-title">
       <div className="admin-modal" onClick={(e) => e.stopPropagation()}>
-        <h3>{editingItem ? 'Edit' : 'Add New'} {tab === 'projects' ? 'Project' : tab === 'products' ? 'Product' : tab === 'brands' ? 'Brand' : 'Testimonial'}</h3>
+        <h3 id="modal-title">{editingItem ? 'Edit' : 'Add New'} {tab === 'projects' ? 'Project' : tab === 'products' ? 'Product' : tab === 'brands' ? 'Brand' : 'Testimonial'}</h3>
         <form onSubmit={handleSubmit}>
           {tab === 'projects' && (
             <>
               <div className="admin-form-group">
-                <label>Title</label>
-                <input value={form.title || ''} onChange={(e) => handleChange('title', e.target.value)} required />
+                <label htmlFor="project-title">Title</label>
+                <input id="project-title" value={form.title || ''} onChange={(e) => handleChange('title', e.target.value)} required />
               </div>
               <div className="admin-form-group">
-                <label>Location</label>
-                <input value={form.location || ''} onChange={(e) => handleChange('location', e.target.value)} required />
+                <label htmlFor="project-location">Location</label>
+                <input id="project-location" value={form.location || ''} onChange={(e) => handleChange('location', e.target.value)} required />
               </div>
               <div className="admin-form-group">
-                <label>Cover Image URL</label>
-                <input value={form.image || ''} onChange={(e) => handleChange('image', e.target.value)} required />
+                <label htmlFor="project-image">Cover Image URL</label>
+                <input id="project-image" value={form.image || ''} onChange={(e) => handleChange('image', e.target.value)} required />
               </div>
               <div className="admin-form-group">
-                <label>Gallery Images (comma-separated URLs)</label>
-                <textarea rows={3} value={form.images ? (Array.isArray(form.images) ? form.images.join(', ') : form.images) : ''} onChange={(e) => handleChange('images', e.target.value)} />
+                <label htmlFor="project-gallery">Gallery Images (comma-separated URLs)</label>
+                <textarea id="project-gallery" rows={3} value={form.images ? (Array.isArray(form.images) ? form.images.join(', ') : form.images) : ''} onChange={(e) => handleChange('images', e.target.value)} />
               </div>
               <div className="admin-form-group">
-                <label>Description</label>
-                <textarea rows={3} value={form.description || ''} onChange={(e) => handleChange('description', e.target.value)} required />
+                <label htmlFor="project-desc">Description</label>
+                <textarea id="project-desc" rows={3} value={form.description || ''} onChange={(e) => handleChange('description', e.target.value)} required />
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                 <div className="admin-form-group">
-                  <label>Capacity</label>
-                  <input value={form.capacity || ''} onChange={(e) => handleChange('capacity', e.target.value)} />
+                  <label htmlFor="project-capacity">Capacity</label>
+                  <input id="project-capacity" value={form.capacity || ''} onChange={(e) => handleChange('capacity', e.target.value)} />
                 </div>
                 <div className="admin-form-group">
-                  <label>Type</label>
-                  <input value={form.type || ''} onChange={(e) => handleChange('type', e.target.value)} />
+                  <label htmlFor="project-type">Type</label>
+                  <input id="project-type" value={form.type || ''} onChange={(e) => handleChange('type', e.target.value)} />
                 </div>
               </div>
               <div className="admin-form-group">
-                <label>Bill Savings</label>
-                <input value={form.savings || ''} onChange={(e) => handleChange('savings', e.target.value)} />
+                <label htmlFor="project-savings">Bill Savings</label>
+                <input id="project-savings" value={form.savings || ''} onChange={(e) => handleChange('savings', e.target.value)} />
               </div>
             </>
           )}
@@ -487,16 +525,16 @@ function AdminModal({ tab, editingItem, onSave, onClose }: {
           {tab === 'products' && (
             <>
               <div className="admin-form-group">
-                <label>Name</label>
-                <input value={form.name || ''} onChange={(e) => handleChange('name', e.target.value)} required />
+                <label htmlFor="product-name">Name</label>
+                <input id="product-name" value={form.name || ''} onChange={(e) => handleChange('name', e.target.value)} required />
               </div>
               <div className="admin-form-group">
-                <label>Description</label>
-                <textarea rows={3} value={form.description || ''} onChange={(e) => handleChange('description', e.target.value)} required />
+                <label htmlFor="product-desc">Description</label>
+                <textarea id="product-desc" rows={3} value={form.description || ''} onChange={(e) => handleChange('description', e.target.value)} required />
               </div>
               <div className="admin-form-group">
-                <label>Image URL</label>
-                <input value={form.image || ''} onChange={(e) => handleChange('image', e.target.value)} />
+                <label htmlFor="product-image">Image URL</label>
+                <input id="product-image" value={form.image || ''} onChange={(e) => handleChange('image', e.target.value)} />
               </div>
             </>
           )}
@@ -504,16 +542,16 @@ function AdminModal({ tab, editingItem, onSave, onClose }: {
           {tab === 'brands' && (
             <>
               <div className="admin-form-group">
-                <label>Brand Name</label>
-                <input value={form.name || ''} onChange={(e) => handleChange('name', e.target.value)} required />
+                <label htmlFor="brand-name">Brand Name</label>
+                <input id="brand-name" value={form.name || ''} onChange={(e) => handleChange('name', e.target.value)} required />
               </div>
               <div className="admin-form-group">
-                <label>Logo URL</label>
-                <input value={form.image || ''} onChange={(e) => handleChange('image', e.target.value)} required />
+                <label htmlFor="brand-image">Logo URL</label>
+                <input id="brand-image" value={form.image || ''} onChange={(e) => handleChange('image', e.target.value)} required />
               </div>
               <div className="admin-form-group">
-                <label>Category</label>
-                <select value={form.category || 'panel'} onChange={(e) => handleChange('category', e.target.value)}>
+                <label htmlFor="brand-category">Category</label>
+                <select id="brand-category" value={form.category || 'panel'} onChange={(e) => handleChange('category', e.target.value)}>
                   <option value="panel">Solar Panel</option>
                   <option value="inverter">Inverter</option>
                 </select>
@@ -524,20 +562,20 @@ function AdminModal({ tab, editingItem, onSave, onClose }: {
           {tab === 'testimonials' && (
             <>
               <div className="admin-form-group">
-                <label>Name</label>
-                <input value={form.name || ''} onChange={(e) => handleChange('name', e.target.value)} required />
+                <label htmlFor="testimonial-name">Name</label>
+                <input id="testimonial-name" value={form.name || ''} onChange={(e) => handleChange('name', e.target.value)} required />
               </div>
               <div className="admin-form-group">
-                <label>Location</label>
-                <input value={form.location || ''} onChange={(e) => handleChange('location', e.target.value)} required />
+                <label htmlFor="testimonial-location">Location</label>
+                <input id="testimonial-location" value={form.location || ''} onChange={(e) => handleChange('location', e.target.value)} required />
               </div>
               <div className="admin-form-group">
-                <label>Quote</label>
-                <textarea rows={4} value={form.quote || ''} onChange={(e) => handleChange('quote', e.target.value)} required />
+                <label htmlFor="testimonial-quote">Quote</label>
+                <textarea id="testimonial-quote" rows={4} value={form.quote || ''} onChange={(e) => handleChange('quote', e.target.value)} required />
               </div>
               <div className="admin-form-group">
-                <label>Rating (1-5)</label>
-                <input type="number" min={1} max={5} value={form.rating || 5} onChange={(e) => handleChange('rating', parseInt(e.target.value))} />
+                <label htmlFor="testimonial-rating">Rating (1-5)</label>
+                <input id="testimonial-rating" type="number" min={1} max={5} value={form.rating || 5} onChange={(e) => handleChange('rating', parseInt(e.target.value))} />
               </div>
             </>
           )}
