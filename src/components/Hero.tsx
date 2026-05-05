@@ -58,7 +58,7 @@ export default function Hero() {
             </div>
 
             {/* Bottom Left - Wide Info Card */}
-            <div className="bento-item bento-wide bento-text-card" style={{ background: '#0ea5e9', color: '#fff' }}>
+            <div className="bento-item bento-wide bento-text-card" style={{ background: '#0369a1', color: '#fff' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
                 <span style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '1px', opacity: 0.9 }}>Ready For Future</span>

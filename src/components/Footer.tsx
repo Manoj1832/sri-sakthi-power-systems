@@ -80,8 +80,8 @@ export default function Footer() {
                 </span>
                 {i === 1 ? (
                   <div>
-                    <a href="tel:+917358942468">+91 73589 42468</a><br />
-                    <a href="tel:+919994347579">+91 99943 47579</a>
+                    <a href="tel:+917358942468" style={{ display: 'inline-block', padding: '10px 4px', minHeight: '44px', lineHeight: '24px' }}>+91 73589 42468</a><br />
+                    <a href="tel:+919994347579" style={{ display: 'inline-block', padding: '10px 4px', minHeight: '44px', lineHeight: '24px' }}>+91 99943 47579</a>
                   </div>
                 ) : i === 2 ? (
                   <a href="mailto:srisakthipowersystemserd@gmail.com">{item.value}</a>

@@ -9,12 +9,13 @@
 :root {
   --blue:         #0ea5e9;
   --blue-dark:    #0284c7;
+  --blue-text:    #0369a1; /* WCAG AA compliant on white — contrast 4.7:1 */
   --blue-light:   #7dd3fc;
   --blue-pale:    #e0f2fe;
   --yellow:       #ffc107;
   --yellow-dark:  #e0a800;
   --yellow-light: #ffcd38;
-  --dark:         #001a33; /* For text and deep accents only */
+  --dark:         #001a33;
   --dark-card:    #ffffff;
   --dark-mid:     #f0f7ff;
   --white:        #FFFFFF;
@@ -75,13 +76,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   white-space: nowrap;
 }
 .btn-primary {
-  background: var(--blue);
+  background: var(--blue-text);
   color: var(--white);
 }
 .btn-primary:hover {
   background: var(--blue-dark);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(14,165,233,0.4);
+  box-shadow: 0 6px 20px rgba(3,105,161,0.4);
 }
 .btn-ghost {
   background: transparent;
@@ -95,11 +96,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .btn-outline-blue {
   background: transparent;
-  color: var(--blue);
-  border: 2px solid var(--blue);
+  color: var(--blue-text);
+  border: 2px solid var(--blue-text);
 }
 .btn-outline-blue:hover {
-  background: var(--blue);
+  background: var(--blue-text);
   color: var(--white);
   transform: translateY(-2px);
 }
@@ -110,10 +111,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: center;
   gap: 8px;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: var(--blue);
+  color: var(--blue-text);
   margin-bottom: 16px;
 }
 .section-label::before {
@@ -121,7 +122,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: block;
   width: 24px;
   height: 2px;
-  background: var(--blue);
+  background: var(--blue-text);
 }
 
 /* --- Section Heading --- */
@@ -135,7 +136,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .section-heading.light { color: var(--white); }
 
 /* --- Utility --- */
-.text-blue    { color: var(--blue); }
+.text-blue    { color: var(--blue-text); }
 .text-yellow  { color: var(--yellow); }
 .text-muted   { color: var(--text-muted); }
 .text-white   { color: var(--white); }

@@ -1,6 +1,4 @@
-PageSpeed Insights logo
-PageSpeed Insights
-Report from May 5, 2026, 2:23:10 PM
+Report from May 5, 2026, 3:13:01 PM
 https://sri-sakthi-power-systems.vercel.app/
 Enter a valid URL
 
@@ -15,25 +13,25 @@ Discover what your real users are experiencing
 No Data
 
 Diagnose performance issues
-50
+68
 Performance
 91
 Accessibility
-96
+100
 Best Practices
-92
+100
 SEO
-50
+68
 FCP
-+5
++4
 LCP
 +0
 TBT
-+15
++30
 CLS
 +25
 SI
-+5
++9
 Performance
 Values are estimated and may vary. The performance score is calculated directly from these metrics.See calculator.
 0–49
@@ -42,23 +40,18 @@ Values are estimated and may vary. The performance score is calculated directly 
 Final Screenshot
 
 Metrics
-Collapse view
+Expand view
 First Contentful Paint
-3.1 s
-First Contentful Paint marks the time at which the first text or image is painted. Learn more about the First Contentful Paint metric.
+3.2 s
 Largest Contentful Paint
-11.4 s
-Largest Contentful Paint marks the time at which the largest text or image is painted. Learn more about the Largest Contentful Paint metric
+10.6 s
 Total Blocking Time
-590 ms
-Sum of all time periods between FCP and Time to Interactive, when task length exceeded 50ms, expressed in milliseconds. Learn more about the Total Blocking Time metric.
+80 ms
 Cumulative Layout Shift
 0
-Cumulative Layout Shift measures the movement of visible elements within the viewport. Learn more about the Cumulative Layout Shift metric.
 Speed Index
-5.9 s
-Speed Index shows how quickly the contents of a page are visibly populated. Learn more about the Speed Index metric.
-Captured at May 5, 2026, 2:23 PM GMT+5:30
+3.2 s
+Captured at May 5, 2026, 3:13 PM GMT+5:30
 Emulated Moto G Power with Lighthouse 13.0.1
 Single page session
 Initial page load
@@ -85,21 +78,6 @@ TBT
 
 CLS
 Insights
-Render blocking requests Est savings of 1,410 ms
-Requests are blocking the page's initial render, which may delay LCP. Deferring or inlining can move these network requests out of the critical path.LCPFCPUnscored
-URL
-Transfer Size
-Duration
-vercel.app 1st party
-6.9 KiB	240 ms
-/assets/index-wQKthoj3.css(sri-sakthi-power-systems.vercel.app)
-6.9 KiB
-240 ms
-Google Fonts cdn 
-1.6 KiB	750 ms
-/css2?family=…(fonts.googleapis.com)
-1.6 KiB
-750 ms
 Improve image delivery Est savings of 1,513 KiB
 Reducing the download time of images can improve the perceived load time of the page and LCP. Learn more about optimizing image sizeLCPFCPUnscored
 URL
@@ -108,7 +86,7 @@ Est Savings
 vercel.app 1st party
 1,306.0 KiB	1,215.4 KiB
 Sri Sakthi Power Systems
-<img src="/logo.png" alt="Sri Sakthi Power Systems" style="height: 54px; width: auto; object-fit: contain;">
+<img src="/logo.png" alt="Sri Sakthi Power Systems" width="54" height="54" fetchpriority="high" style="height: 54px; width: auto; object-fit: contain;">
 /logo.png(sri-sakthi-power-systems.vercel.app)
 927.2 KiB
 925.7 KiB
@@ -116,15 +94,15 @@ Using a modern image format (WebP, AVIF) or increasing the image compression cou
 671.2 KiB
 This image file is larger than it needs to be (1254x1254) for its displayed dimensions (95x95). Use responsive images to reduce the image download size.
 921.9 KiB
-Engineer
-<img class="bento-img" src="/Bottom Right - Tall Image.png" alt="Engineer" style="height: 100%;">
+Solar Engineer at work
+<img class="bento-img" src="/Bottom Right - Tall Image.png" alt="Solar Engineer at work" loading="lazy" width="400" height="600" style="height: 100%;">
 /Bottom%20Right%20-%20Tall%20Image.png(sri-sakthi-power-systems.vercel.app)
 262.3 KiB
 247.1 KiB
 Using a modern image format (WebP, AVIF) or increasing the image compression could improve this image's download size.
 247.1 KiB
 Solar Setup
-<img class="bento-img" src="/image.png" alt="Solar Setup">
+<img class="bento-img" src="/image.png" alt="Solar Setup" loading="lazy" width="400" height="300">
 /image.png(sri-sakthi-power-systems.vercel.app)
 33.9 KiB
 29.6 KiB
@@ -138,19 +116,19 @@ Premium Solar Installation
 Using a modern image format (WebP, AVIF) or increasing the image compression could improve this image's download size.
 13.0 KiB
 unsplash.com
-192.7 KiB	157.3 KiB
+192.8 KiB	157.3 KiB
 Solar Panels
-<img class="bento-img" src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&amp;f…" alt="Solar Panels">
+<img class="bento-img" src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&amp;f…" alt="Solar Panels" loading="eager" fetchpriority="high" width="800" height="450">
 /photo-149…-f26997328c1b?auto=format&fit=crop&q=80&w=800(images.unsplash.com)
-192.7 KiB
+192.8 KiB
 157.3 KiB
 Increasing the image compression factor could improve this image's download size.
-134.1 KiB
+134.2 KiB
 This image file is larger than it needs to be (800x450) for its displayed dimensions (622x350). Use responsive images to reduce the image download size.
-76.1 KiB
+76.2 KiB
 sanishtech.com
 108.9 KiB	51.1 KiB
-Installation
+div.container > div.how-grid > div.how-card > div.how-card-img
 <div class="how-card-img" style="background-image: url(&quot;https://img.sanishtech.com/u/c3ad705c066a2634e55e35…&quot;);">
 /u/c3ad705….webp(img.sanishtech.com)
 108.9 KiB
@@ -256,55 +234,32 @@ Sungrow
 5.6 KiB
 This image file is larger than it needs to be (128x128) for its displayed dimensions (70x70). Use responsive images to reduce the image download size.
 4.5 KiB
-Forced reflow
-A forced reflow occurs when JavaScript queries geometric properties (such as offsetWidth) after styles have been invalidated by a change to the DOM state. This can result in poor performance. Learn more about forced reflows and possible mitigations.Unscored
-Top function call
-Total reflow time
-/assets/index-CzDt_UgU.js:26:1866(sri-sakthi-power-systems.vercel.app)
-742 ms
-Source
-Total reflow time
-/assets/index-CzDt_UgU.js:82:2710(sri-sakthi-power-systems.vercel.app)
-731 ms
-/assets/index-CzDt_UgU.js:82:97228(sri-sakthi-power-systems.vercel.app)
-75 ms
-[unattributed]
-20 ms
-/assets/index-CzDt_UgU.js:91:22066(sri-sakthi-power-systems.vercel.app)
-13 ms
-/assets/index-CzDt_UgU.js:91:10958(sri-sakthi-power-systems.vercel.app)
-22 ms
-LCP breakdown
-Each subpart has specific improvement strategies. Ideally, most of the LCP time should be spent on loading the resources, not within delays.LCPUnscored
-Subpart
+Render blocking requests Est savings of 150 ms
+Requests are blocking the page's initial render, which may delay LCP. Deferring or inlining can move these network requests out of the critical path.LCPFCPUnscored
+URL
+Transfer Size
 Duration
-Time to first byte
-0 ms
-Resource load delay
-2,050 ms
-Resource load duration
-580 ms
-Element render delay
-370 ms
-Sri Sakthi Power Systems
-<img src="/logo.png" alt="Sri Sakthi Power Systems" style="height: 54px; width: auto; object-fit: contain;">
+vercel.app 1st party
+6.9 KiB	150 ms
+/assets/index-wQKthoj3.css(sri-sakthi-power-systems.vercel.app)
+6.9 KiB
+150 ms
+Google Fonts cdn 
+1.6 KiB	600 ms
+/css2?family=…(fonts.googleapis.com)
+1.6 KiB
+600 ms
+Forced reflow
 LCP request discovery
-Optimize LCP by making the LCP image discoverable from the HTML immediately, and avoiding lazy-loadingLCPUnscored
-lazy load not applied
-fetchpriority=high should be applied
-Request is discoverable in initial document
-Sri Sakthi Power Systems
-<img src="/logo.png" alt="Sri Sakthi Power Systems" style="height: 54px; width: auto; object-fit: contain;">
 Network dependency tree
+Warnings: More than 4 preconnect connections were found. These should be used sparingly and only to the most important origins.
 Avoid chaining critical requests by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load.LCPUnscored
-Maximum critical path latency: 2,091 ms
+Maximum critical path latency: 122 ms
 Initial Navigation
-https://sri-sakthi-power-systems.vercel.app - 450 ms, 1.18 KiB
-/css2?family=…(fonts.googleapis.com) - 507 ms, 1.57 KiB
-…v20/UcC73FwrK….woff2(fonts.gstatic.com) - 2,091 ms, 48.09 KiB
-…v15/QGYvz_MVc….woff2(fonts.gstatic.com) - 2,089 ms, 32.27 KiB
-/assets/index-CzDt_UgU.js(sri-sakthi-power-systems.vercel.app) - 1,104 ms, 182.47 KiB
-/assets/index-wQKthoj3.css(sri-sakthi-power-systems.vercel.app) - 906 ms, 6.92 KiB
+https://sri-sakthi-power-systems.vercel.app - 62 ms, 2.20 KiB
+/assets/index-BQF4TzSw.js(sri-sakthi-power-systems.vercel.app) - 122 ms, 54.89 KiB
+/assets/index-wQKthoj3.css(sri-sakthi-power-systems.vercel.app) - 92 ms, 6.92 KiB
+/css2?family=…(fonts.googleapis.com) - 103 ms, 1.57 KiB
 Preconnected origins
 preconnect hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.
 Origin
@@ -315,271 +270,144 @@ head > link
 https://fonts.gstatic.com/
 head > link
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+https://img.sanishtech.com/
+head > link
+<link rel="preconnect" href="https://img.sanishtech.com">
+https://images.unsplash.com/
+head > link
+<link rel="preconnect" href="https://images.unsplash.com">
+https://img.logo.dev/
+head > link
+<link rel="preconnect" href="https://img.logo.dev">
+Unused preconnect. Check that the crossorigin attribute is used properly.
 Preconnect candidates
 Add preconnect hints to your most important origins, but try to use no more than 4.
 Origin
 Est LCP savings
-https://img.sanishtech.com
-390 ms
-https://cdn-icons-png.flaticon.com
-360 ms
-https://images.unsplash.com
-300 ms
 https://img.logo.dev
 300 ms
 Use efficient cache lifetimes Est savings of 82 KiB
+A long cache lifetime can speed up repeat visits to your page. Learn more about caching.LCPFCPUnscored
+Request
+Cache TTL
+Transfer Size
+sanishtech.com
+332 KiB
+/u/af68b6c….png(img.sanishtech.com)
+7d
+132 KiB
+/u/c3ad705….webp(img.sanishtech.com)
+7d
+109 KiB
+/u/532ba90….jpg(img.sanishtech.com)
+7d
+29 KiB
+/u/2ee79e1….jpeg(img.sanishtech.com)
+7d
+11 KiB
+/u/31af0d4….jpeg(img.sanishtech.com)
+7d
+11 KiB
+/u/89cdaaa….jpeg(img.sanishtech.com)
+7d
+9 KiB
+/u/82a0f7d….jpeg(img.sanishtech.com)
+7d
+7 KiB
+/u/f6b75be….jpeg(img.sanishtech.com)
+7d
+7 KiB
+/u/57bf758….jpeg(img.sanishtech.com)
+7d
+7 KiB
+/u/da98819….jpeg(img.sanishtech.com)
+7d
+5 KiB
+/u/1d3bace….png(img.sanishtech.com)
+7d
+5 KiB
+logo.dev
+122 KiB
+/deye.com?token=pk_ck2t6V…(img.logo.dev)
+1d
+15 KiB
+/polycab.com?token=pk_ck2t6V…(img.logo.dev)
+1d
+12 KiB
+/ginlong.com?token=pk_ck2t6V…(img.logo.dev)
+1d
+11 KiB
+/havells.com?token=pk_ck2t6V…(img.logo.dev)
+1d
+9 KiB
+/goldisolar.com?token=pk_ck2t6V…(img.logo.dev)
+1d
+9 KiB
+/utl.co.in?token=pk_ck2t6V…(img.logo.dev)
+1d
+9 KiB
+/navitassolar.com?token=pk_ck2t6V…(img.logo.dev)
+1d
+9 KiB
+/premierenergies.com?token=pk_ck2t6V…(img.logo.dev)
+1d
+8 KiB
+/waaree.com?token=pk_ck2t6V…(img.logo.dev)
+1d
+7 KiB
+/vikramsolar.com?token=pk_ck2t6V…(img.logo.dev)
+1d
+7 KiB
+/sungrowpower.com?token=pk_ck2t6V…(img.logo.dev)
+1d
+7 KiB
+/adani.com?token=pk_ck2t6V…(img.logo.dev)
+1d
+5 KiB
+/kirloskar.com?token=pk_ck2t6V…(img.logo.dev)
+1d
+5 KiB
+/livguard.com?token=pk_ck2t6V…(img.logo.dev)
+1d
+5 KiB
+/ginverter.com?token=pk_ck2t6V…(img.logo.dev)
+1d
+4 KiB
 Optimize DOM size
+LCP breakdown
 3rd parties
 These insights are also available in the Chrome DevTools Performance Panel - record a trace to view more detailed information.
 Diagnostics
-Minimize main-thread work 3.5 s
-Consider reducing the time spent parsing, compiling and executing JS. You may find delivering smaller JS payloads helps with this. Learn how to minimize main-thread workTBTUnscored
-Category
-Time Spent
-Style & Layout
-1,229 ms
-Other
-1,115 ms
-Script Evaluation
-779 ms
-Rendering
-257 ms
-Script Parsing & Compilation
-123 ms
-Parse HTML & CSS
-15 ms
-Reduce unused JavaScript Est savings of 101 KiB
+Reduce unused JavaScript Est savings of 66 KiB
 Reduce unused JavaScript and defer loading scripts until they are required to decrease bytes consumed by network activity. Learn how to reduce unused JavaScript.LCPFCPUnscored
 URL
 Transfer Size
 Est Savings
 vercel.app 1st party
-181.8 KiB	101.0 KiB
-/assets/index-CzDt_UgU.js(sri-sakthi-power-systems.vercel.app)
-181.8 KiB
-101.0 KiB
+115.2 KiB	65.8 KiB
+/assets/index-BQF4TzSw.js(sri-sakthi-power-systems.vercel.app)
+54.2 KiB
+34.7 KiB
+/assets/animation….js(sri-sakthi-power-systems.vercel.app)
+61.0 KiB
+31.1 KiB
 Image elements do not have explicit width and height
-Set an explicit width and height on image elements to reduce layout shifts and improve CLS. Learn how to set image dimensionsCLSUnscored
-URL
-vercel.app 1st party
-Sri Sakthi Power Systems
-<img src="/logo.png" alt="Sri Sakthi Power Systems" style="height: 54px; width: auto; object-fit: contain;">
-/logo.png(sri-sakthi-power-systems.vercel.app)
-Sri Sakthi Power Systems
-<img src="/logo.png" alt="Sri Sakthi Power Systems" style="height: 72px; width: auto; object-fit: contain;">
-/logo.png(sri-sakthi-power-systems.vercel.app)
-logo.dev
-Kirloskar Solar
-<img src="https://img.logo.dev/kirloskar.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Kirloskar Solar" loading="lazy" decoding="async" draggable="false">
-/kirloskar.com?token=pk_ck2t6V…(img.logo.dev)
-Goldi Solar
-<img src="https://img.logo.dev/goldisolar.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Goldi Solar" loading="lazy" decoding="async" draggable="false">
-/goldisolar.com?token=pk_ck2t6V…(img.logo.dev)
-Adani Solar
-<img src="https://img.logo.dev/adani.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Adani Solar" loading="lazy" decoding="async" draggable="false">
-/adani.com?token=pk_ck2t6V…(img.logo.dev)
-Vikram Solar
-<img src="https://img.logo.dev/vikramsolar.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Vikram Solar" loading="lazy" decoding="async" draggable="false">
-/vikramsolar.com?token=pk_ck2t6V…(img.logo.dev)
-Waaree
-<img src="https://img.logo.dev/waaree.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Waaree" loading="lazy" decoding="async" draggable="false">
-/waaree.com?token=pk_ck2t6V…(img.logo.dev)
-Navitas
-<img src="https://img.logo.dev/navitassolar.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Navitas" loading="lazy" decoding="async" draggable="false">
-/navitassolar.com?token=pk_ck2t6V…(img.logo.dev)
-UTL
-<img src="https://img.logo.dev/utl.co.in?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="UTL" loading="lazy" decoding="async" draggable="false">
-/utl.co.in?token=pk_ck2t6V…(img.logo.dev)
-Premier Energies
-<img src="https://img.logo.dev/premierenergies.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Premier Energies" loading="lazy" decoding="async" draggable="false">
-/premierenergies.com?token=pk_ck2t6V…(img.logo.dev)
-Kirloskar Solar
-<img src="https://img.logo.dev/kirloskar.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Kirloskar Solar" loading="lazy" decoding="async" draggable="false">
-/kirloskar.com?token=pk_ck2t6V…(img.logo.dev)
-Goldi Solar
-<img src="https://img.logo.dev/goldisolar.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Goldi Solar" loading="lazy" decoding="async" draggable="false">
-/goldisolar.com?token=pk_ck2t6V…(img.logo.dev)
-Adani Solar
-<img src="https://img.logo.dev/adani.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Adani Solar" loading="lazy" decoding="async" draggable="false">
-/adani.com?token=pk_ck2t6V…(img.logo.dev)
-Vikram Solar
-<img src="https://img.logo.dev/vikramsolar.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Vikram Solar" loading="lazy" decoding="async" draggable="false">
-/vikramsolar.com?token=pk_ck2t6V…(img.logo.dev)
-Waaree
-<img src="https://img.logo.dev/waaree.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Waaree" loading="lazy" decoding="async" draggable="false">
-/waaree.com?token=pk_ck2t6V…(img.logo.dev)
-Navitas
-<img src="https://img.logo.dev/navitassolar.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Navitas" loading="lazy" decoding="async" draggable="false">
-/navitassolar.com?token=pk_ck2t6V…(img.logo.dev)
-UTL
-<img src="https://img.logo.dev/utl.co.in?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="UTL" loading="lazy" decoding="async" draggable="false">
-/utl.co.in?token=pk_ck2t6V…(img.logo.dev)
-Premier Energies
-<img src="https://img.logo.dev/premierenergies.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Premier Energies" loading="lazy" decoding="async" draggable="false">
-/premierenergies.com?token=pk_ck2t6V…(img.logo.dev)
-Kirloskar Solar
-<img src="https://img.logo.dev/kirloskar.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Kirloskar Solar" loading="lazy" decoding="async" draggable="false">
-/kirloskar.com?token=pk_ck2t6V…(img.logo.dev)
-Goldi Solar
-<img src="https://img.logo.dev/goldisolar.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Goldi Solar" loading="lazy" decoding="async" draggable="false">
-/goldisolar.com?token=pk_ck2t6V…(img.logo.dev)
-Adani Solar
-<img src="https://img.logo.dev/adani.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Adani Solar" loading="lazy" decoding="async" draggable="false">
-/adani.com?token=pk_ck2t6V…(img.logo.dev)
-Vikram Solar
-<img src="https://img.logo.dev/vikramsolar.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Vikram Solar" loading="lazy" decoding="async" draggable="false">
-/vikramsolar.com?token=pk_ck2t6V…(img.logo.dev)
-Waaree
-<img src="https://img.logo.dev/waaree.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Waaree" loading="lazy" decoding="async" draggable="false">
-/waaree.com?token=pk_ck2t6V…(img.logo.dev)
-Navitas
-<img src="https://img.logo.dev/navitassolar.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Navitas" loading="lazy" decoding="async" draggable="false">
-/navitassolar.com?token=pk_ck2t6V…(img.logo.dev)
-UTL
-<img src="https://img.logo.dev/utl.co.in?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="UTL" loading="lazy" decoding="async" draggable="false">
-/utl.co.in?token=pk_ck2t6V…(img.logo.dev)
-Premier Energies
-<img src="https://img.logo.dev/premierenergies.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Premier Energies" loading="lazy" decoding="async" draggable="false">
-/premierenergies.com?token=pk_ck2t6V…(img.logo.dev)
-Growatt
-<img src="https://img.logo.dev/ginverter.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Growatt" loading="lazy" decoding="async" draggable="false">
-/ginverter.com?token=pk_ck2t6V…(img.logo.dev)
-Sungrow
-<img src="https://img.logo.dev/sungrowpower.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Sungrow" loading="lazy" decoding="async" draggable="false">
-/sungrowpower.com?token=pk_ck2t6V…(img.logo.dev)
-Havells
-<img src="https://img.logo.dev/havells.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Havells" loading="lazy" decoding="async" draggable="false">
-/havells.com?token=pk_ck2t6V…(img.logo.dev)
-Polycab
-<img src="https://img.logo.dev/polycab.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Polycab" loading="lazy" decoding="async" draggable="false">
-/polycab.com?token=pk_ck2t6V…(img.logo.dev)
-Solis
-<img src="https://img.logo.dev/ginlong.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Solis" loading="lazy" decoding="async" draggable="false">
-/ginlong.com?token=pk_ck2t6V…(img.logo.dev)
-Deye
-<img src="https://img.logo.dev/deye.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Deye" loading="lazy" decoding="async" draggable="false">
-/deye.com?token=pk_ck2t6V…(img.logo.dev)
-Livguard
-<img src="https://img.logo.dev/livguard.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Livguard" loading="lazy" decoding="async" draggable="false">
-/livguard.com?token=pk_ck2t6V…(img.logo.dev)
-Kirloskar
-<img src="https://img.logo.dev/kirloskar.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Kirloskar" loading="lazy" decoding="async" draggable="false">
-/kirloskar.com?token=pk_ck2t6V…(img.logo.dev)
-Growatt
-<img src="https://img.logo.dev/ginverter.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Growatt" loading="lazy" decoding="async" draggable="false">
-/ginverter.com?token=pk_ck2t6V…(img.logo.dev)
-Sungrow
-<img src="https://img.logo.dev/sungrowpower.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Sungrow" loading="lazy" decoding="async" draggable="false">
-/sungrowpower.com?token=pk_ck2t6V…(img.logo.dev)
-Havells
-<img src="https://img.logo.dev/havells.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Havells" loading="lazy" decoding="async" draggable="false">
-/havells.com?token=pk_ck2t6V…(img.logo.dev)
-Polycab
-<img src="https://img.logo.dev/polycab.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Polycab" loading="lazy" decoding="async" draggable="false">
-/polycab.com?token=pk_ck2t6V…(img.logo.dev)
-Solis
-<img src="https://img.logo.dev/ginlong.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Solis" loading="lazy" decoding="async" draggable="false">
-/ginlong.com?token=pk_ck2t6V…(img.logo.dev)
-Deye
-<img src="https://img.logo.dev/deye.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Deye" loading="lazy" decoding="async" draggable="false">
-/deye.com?token=pk_ck2t6V…(img.logo.dev)
-Livguard
-<img src="https://img.logo.dev/livguard.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Livguard" loading="lazy" decoding="async" draggable="false">
-/livguard.com?token=pk_ck2t6V…(img.logo.dev)
-Kirloskar
-<img src="https://img.logo.dev/kirloskar.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Kirloskar" loading="lazy" decoding="async" draggable="false">
-/kirloskar.com?token=pk_ck2t6V…(img.logo.dev)
-Growatt
-<img src="https://img.logo.dev/ginverter.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Growatt" loading="lazy" decoding="async" draggable="false">
-/ginverter.com?token=pk_ck2t6V…(img.logo.dev)
-Sungrow
-<img src="https://img.logo.dev/sungrowpower.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Sungrow" loading="lazy" decoding="async" draggable="false">
-/sungrowpower.com?token=pk_ck2t6V…(img.logo.dev)
-Havells
-<img src="https://img.logo.dev/havells.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Havells" loading="lazy" decoding="async" draggable="false">
-/havells.com?token=pk_ck2t6V…(img.logo.dev)
-Polycab
-<img src="https://img.logo.dev/polycab.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Polycab" loading="lazy" decoding="async" draggable="false">
-/polycab.com?token=pk_ck2t6V…(img.logo.dev)
-Solis
-<img src="https://img.logo.dev/ginlong.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Solis" loading="lazy" decoding="async" draggable="false">
-/ginlong.com?token=pk_ck2t6V…(img.logo.dev)
-Deye
-<img src="https://img.logo.dev/deye.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Deye" loading="lazy" decoding="async" draggable="false">
-/deye.com?token=pk_ck2t6V…(img.logo.dev)
-Livguard
-<img src="https://img.logo.dev/livguard.com?token=pk_ck2t6VNVTl60E4BXdUVW-A" alt="Livguard" loading="lazy" decoding="async" draggable="false">
-/livguard.com?token=pk_ck2t6V…(img.logo.dev)
-Avoid long main-thread tasks 8 long tasks found
+Avoid long main-thread tasks 2 long tasks found
 Avoid non-composited animations 2 animated elements found
 More information about the performance of your application. These numbers don't directly affect the Performance score.
-Passed audits (13)
+Passed audits (14)
 Show
 91
 Accessibility
 These checks highlight opportunities to improve the accessibility of your web app. Automatic detection can only detect a subset of issues and does not guarantee the accessibility of your web app, so manual testing is also encouraged.
 Contrast
 Background and foreground colors do not have a sufficient contrast ratio.
-Low-contrast text is difficult or impossible for many users to read. Learn how to provide sufficient color contrast.
-Failing Elements
-GET QUOTE   →
-<button class="btn btn-primary" style="border-radius: 100px; padding: 14px 28px; border: none; cursor: pointer;">
-300+
-<div class="bento-num">
-300+ Projects successfully delivered in Tamil Nadu
-<div class="bento-item bento-text-card">
-Green Energy Make Bold Impact
-<h3 style="font-size: 24px; font-weight: 700; margin: 0px; line-height: 1.2;">
-READY FOR FUTURE Green Energy Make Bold Impact
-<div class="bento-item bento-wide bento-text-card" style="background: rgb(14, 165, 233); color: rgb(255, 255, 255);">
-WHY CHOOSE US
-<p class="section-label" style="justify-content: center;">
-Since 2016 ABOUT SRI SAKTHI POWER SYSTEMS Your Trusted Partner for Solar Ener…
-<section class="about-section" id="about">
-Sri Sakthi Difference
-<span class="text-blue">
-Since 2016 ABOUT SRI SAKTHI POWER SYSTEMS Your Trusted Partner for Solar Ener…
-<section class="about-section" id="about">
-OUR PROCESS
-<p class="section-label">
-OUR PROCESS How It Works START YOUR PROJECT STEP 01 Site Survey We visit your …
-<section class="how-section" id="how-it-works">
-Works
-<span class="text-blue">
-OUR PROCESS How It Works START YOUR PROJECT STEP 01 Site Survey We visit your …
-<section class="how-section" id="how-it-works">
-START YOUR PROJECT
-<a class="btn btn-outline-blue" href="/contact">
-OUR PROCESS How It Works START YOUR PROJECT STEP 01 Site Survey We visit your …
-<section class="how-section" id="how-it-works">
-2026 Sri Sakthi Power Systems. All rights reserved.
-<div class="footer-copy">
-Your trusted solar energy partner. We supply, install, and maintain solar syste…
-<footer class="footer">
-Admin
-<a href="/admin" style="font-size: 12px; color: rgba(255, 255, 255, 0.2);">
-Your trusted solar energy partner. We supply, install, and maintain solar syste…
-<footer class="footer">
 These are opportunities to improve the legibility of your content.
 Best practices
 Touch targets do not have sufficient size or spacing.
-Touch targets with sufficient size and spacing help users who may have difficulty targeting small controls to activate the targets. Learn more about touch targets.
-Failing Elements
-+91 73589 42468
-<a href="tel:+917358942468">
-+91 99943 47579
-<a href="tel:+919994347579">
-+91 99943 47579
-<a href="tel:+919994347579">
-+91 73589 42468
-<a href="tel:+917358942468">
 These items highlight common accessibility best practices.
 Navigation
 Heading elements are not in a sequentially-descending order
-Properly ordered headings that do not skip levels convey the semantic structure of the page, making it easier to navigate and understand when using assistive technologies. Learn more about heading order.
-Failing Elements
-Solar Panels
-<h4>
 These are opportunities to improve keyboard navigation in your application.
 Additional items to manually check (10)
 Show
@@ -588,68 +416,21 @@ Passed audits (22)
 Show
 Not applicable (35)
 Show
-96
+100
 Best Practices
-General
-Browser errors were logged to the console
-Errors logged to the console indicate unresolved problems. They can come from network request failures and other browser concerns. Learn more about this errors in console diagnostic audit
-Source
-Description
-flaticon.com
-…1087/1087815.png:1:0(cdn-icons-png.flaticon.com)
-Failed to load resource: the server responded with a status of 404 (Not Found)
-…2920/2920298.png:1:0(cdn-icons-png.flaticon.com)
-Failed to load resource: the server responded with a status of 404 (Not Found)
-…1995/1995574.png:1:0(cdn-icons-png.flaticon.com)
-Failed to load resource: the server responded with a status of 404 (Not Found)
-…1828/1828640.png:1:0(cdn-icons-png.flaticon.com)
-Failed to load resource: the server responded with a status of 404 (Not Found)
-Missing source maps for large first-party JavaScript
-Source maps translate minified code to the original source code. This helps developers debug in production. In addition, Lighthouse is able to provide further insights. Consider deploying source maps to take advantage of these benefits. Learn more about source maps.Unscored
-URL
-Map URL
-vercel.app 1st party
-/assets/index-CzDt_UgU.js(sri-sakthi-power-systems.vercel.app)
-Large JavaScript file is missing a source map
 Trust and Safety
 Ensure CSP is effective against XSS attacks
 Ensure proper origin isolation with COOP
 Mitigate clickjacking with XFO or CSP
 Mitigate DOM-based XSS with Trusted Types
-Passed audits (11)
+Passed audits (13)
 Show
 Not applicable (3)
 Show
-92
+100
 SEO
 These checks ensure that your page is following basic search engine optimization advice. There are many additional factors Lighthouse does not score here that may affect your search ranking, including performance on Core Web Vitals. Learn more about Google Search Essentials.
-Crawling and Indexing
-robots.txt is not valid 22 errors found
-To appear in search results, crawlers need access to your app.
 Additional items to manually check (1)
-Show
+Hide
+Structured data is valid
 Run these additional validators on your site to check additional SEO best practices.
-Passed audits (8)
-Show
-Not applicable (1)
-Show
-More on PageSpeed Insights
-What's new
-Documentation
-Learn about Web Performance
-Ask questions on Stack Overflow
-Mailing list
-Related Content
-Updates
-Web Fundamentals
-Case Studies
-Podcasts
-Connect
-Twitter
-Youtube
-Google Developers Logo
-Chrome
-Firebase
-All products
-Terms and Privacy Policy
-For details, see the Google Developers Site Policies.

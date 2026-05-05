@@ -208,7 +208,7 @@ const Masonry = ({
             {renderOverlay ? renderOverlay(item) : (
               item.label && (
                 <div className="masonry-item-overlay">
-                  <h4>{item.label}</h4>
+                  <p style={{ fontWeight: 700 }}>{item.label}</p>
                   {item.desc && <p>{item.desc}</p>}
                 </div>
               )
