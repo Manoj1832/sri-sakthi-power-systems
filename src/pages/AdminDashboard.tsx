@@ -22,6 +22,44 @@ interface Product {
   image: string
 }
 
+interface Brand {
+  id: string
+  name: string
+  image: string
+  category: string
+}
+
+function loadBrands(): Brand[] {
+  const stored = localStorage.getItem('ssp_brands')
+  if (stored) {
+    try { return JSON.parse(stored) } catch { return defaultBrands }
+  }
+  return defaultBrands
+}
+
+function saveBrands(brands: Brand[]) {
+  localStorage.setItem('ssp_brands', JSON.stringify(brands))
+}
+
+const defaultBrands: Brand[] = [
+  { id: '1', name: 'Kirloskar Solar', image: 'https://img.logo.dev/kirloskar.com?token=pk_ck2t6VNVTl60E4BXdUVW-A', category: 'panel' },
+  { id: '2', name: 'Goldi Solar', image: 'https://img.logo.dev/goldisolar.com?token=pk_ck2t6VNVTl60E4BXdUVW-A', category: 'panel' },
+  { id: '3', name: 'Adani Solar', image: 'https://img.logo.dev/adani.com?token=pk_ck2t6VNVTl60E4BXdUVW-A', category: 'panel' },
+  { id: '4', name: 'Vikram Solar', image: 'https://img.logo.dev/vikramsolar.com?token=pk_ck2t6VNVTl60E4BXdUVW-A', category: 'panel' },
+  { id: '5', name: 'Waaree', image: 'https://img.logo.dev/waaree.com?token=pk_ck2t6VNVTl60E4BXdUVW-A', category: 'panel' },
+  { id: '6', name: 'Navitas', image: 'https://img.logo.dev/navitassolar.com?token=pk_ck2t6VNVTl60E4BXdUVW-A', category: 'panel' },
+  { id: '7', name: 'UTL', image: 'https://img.logo.dev/utl.co.in?token=pk_ck2t6VNVTl60E4BXdUVW-A', category: 'panel' },
+  { id: '8', name: 'Premier Energies', image: 'https://img.logo.dev/premierenergies.com?token=pk_ck2t6VNVTl60E4BXdUVW-A', category: 'panel' },
+  { id: '9', name: 'Growatt', image: 'https://img.logo.dev/ginverter.com?token=pk_ck2t6VNVTl60E4BXdUVW-A', category: 'inverter' },
+  { id: '10', name: 'Sungrow', image: 'https://img.logo.dev/sungrowpower.com?token=pk_ck2t6VNVTl60E4BXdUVW-A', category: 'inverter' },
+  { id: '11', name: 'Havells', image: 'https://img.logo.dev/havells.com?token=pk_ck2t6VNVTl60E4BXdUVW-A', category: 'inverter' },
+  { id: '12', name: 'Polycab', image: 'https://img.logo.dev/polycab.com?token=pk_ck2t6VNVTl60E4BXdUVW-A', category: 'inverter' },
+  { id: '13', name: 'Solis', image: 'https://img.logo.dev/ginlong.com?token=pk_ck2t6VNVTl60E4BXdUVW-A', category: 'inverter' },
+  { id: '14', name: 'Deye', image: 'https://img.logo.dev/deye.com?token=pk_ck2t6VNVTl60E4BXdUVW-A', category: 'inverter' },
+  { id: '15', name: 'Livguard', image: 'https://img.logo.dev/livguard.com?token=pk_ck2t6VNVTl60E4BXdUVW-A', category: 'inverter' },
+  { id: '16', name: 'Kirloskar', image: 'https://img.logo.dev/kirloskar.com?token=pk_ck2t6VNVTl60E4BXdUVW-A', category: 'inverter' },
+]
+
 interface Testimonial {
   id: string
   name: string
@@ -73,7 +111,7 @@ const defaultTestimonials: Testimonial[] = [
   },
 ]
 
-type Tab = 'projects' | 'products' | 'testimonials'
+type Tab = 'projects' | 'products' | 'testimonials' | 'brands'
 
 export default function AdminDashboard() {
   const { isAuthenticated, logout } = useAuth()
@@ -83,6 +121,7 @@ export default function AdminDashboard() {
   const [projects, setProjects] = useState<Project[]>(loadProjects())
   const [products, setProducts] = useState<Product[]>(loadProducts())
   const [testimonials, setTestimonials] = useState<Testimonial[]>(loadTestimonials())
+  const [brands, setBrands] = useState<Brand[]>(loadBrands())
 
   const [showModal, setShowModal] = useState(false)
   const [editingItem, setEditingItem] = useState<any>(null)
@@ -160,6 +199,37 @@ export default function AdminDashboard() {
     }
   }
 
+  // Brand CRUD
+  const handleSaveBrand = (data: Partial<Brand>) => {
+    if (editingItem) {
+      const updated = brands.map(b => b.id === editingItem.id ? { ...b, ...data } : b)
+      setBrands(updated)
+      saveBrands(updated)
+    } else {
+      const newBrand: Brand = {
+        id: Date.now().toString(),
+        name: data.name || '',
+        image: data.image || '',
+        category: data.category || 'panel',
+      }
+      const updated = [...brands, newBrand]
+      setBrands(updated)
+      saveBrands(updated)
+    }
+    notifyUpdate()
+    setShowModal(false)
+    setEditingItem(null)
+  }
+
+  const handleDeleteBrand = (id: string) => {
+    if (confirm('Delete this brand?')) {
+      const updated = brands.filter(b => b.id !== id)
+      setBrands(updated)
+      saveBrands(updated)
+      notifyUpdate()
+    }
+  }
+
   // Testimonial CRUD
   const handleSaveTestimonial = (data: Partial<Testimonial>) => {
     if (editingItem) {
@@ -190,6 +260,7 @@ export default function AdminDashboard() {
     { key: 'projects', label: 'Projects' },
     { key: 'products', label: 'Products' },
     { key: 'testimonials', label: 'Testimonials' },
+    { key: 'brands', label: 'Brands' },
   ]
 
   return (
@@ -201,7 +272,7 @@ export default function AdminDashboard() {
         </div>
         {tabs.map(t => (
           <button key={t.key} className={`admin-nav-item${activeTab === t.key ? ' active' : ''}`} onClick={() => setActiveTab(t.key)}>
-            {t.key === 'projects' ? '📁' : t.key === 'products' ? '📦' : '⭐'} {t.label}
+            {t.key === 'projects' ? '📁' : t.key === 'products' ? '📦' : t.key === 'brands' ? '🏷️' : '⭐'} {t.label}
           </button>
         ))}
         <div style={{ marginTop: 'auto', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
@@ -309,11 +380,41 @@ export default function AdminDashboard() {
           </div>
         )}
 
+        {activeTab === 'brands' && (
+          <div className="admin-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Logo</th>
+                  <th>Name</th>
+                  <th>Category</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {brands.map(b => (
+                  <tr key={b.id}>
+                    <td><img src={b.image} alt={b.name} className="admin-brand-thumb" /></td>
+                    <td><strong>{b.name}</strong></td>
+                    <td>{b.category === 'panel' ? 'Solar Panel' : 'Inverter'}</td>
+                    <td>
+                      <div className="admin-actions">
+                        <button className="admin-btn-edit" onClick={() => { setEditingItem(b); setShowModal(true) }}>Edit</button>
+                        <button className="admin-btn-delete" onClick={() => handleDeleteBrand(b.id)}>Delete</button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+
         {showModal && (
           <AdminModal
             tab={activeTab}
             editingItem={editingItem}
-            onSave={activeTab === 'projects' ? handleSaveProject : activeTab === 'products' ? handleSaveProduct : handleSaveTestimonial}
+            onSave={activeTab === 'projects' ? handleSaveProject : activeTab === 'products' ? handleSaveProduct : activeTab === 'brands' ? handleSaveBrand : handleSaveTestimonial}
             onClose={() => { setShowModal(false); setEditingItem(null) }}
           />
         )}
@@ -342,7 +443,7 @@ function AdminModal({ tab, editingItem, onSave, onClose }: {
   return (
     <div className="admin-modal-overlay" onClick={onClose}>
       <div className="admin-modal" onClick={(e) => e.stopPropagation()}>
-        <h3>{editingItem ? 'Edit' : 'Add New'} {tab === 'projects' ? 'Project' : tab === 'products' ? 'Product' : 'Testimonial'}</h3>
+        <h3>{editingItem ? 'Edit' : 'Add New'} {tab === 'projects' ? 'Project' : tab === 'products' ? 'Product' : tab === 'brands' ? 'Brand' : 'Testimonial'}</h3>
         <form onSubmit={handleSubmit}>
           {tab === 'projects' && (
             <>
@@ -396,6 +497,26 @@ function AdminModal({ tab, editingItem, onSave, onClose }: {
               <div className="admin-form-group">
                 <label>Image URL</label>
                 <input value={form.image || ''} onChange={(e) => handleChange('image', e.target.value)} />
+              </div>
+            </>
+          )}
+
+          {tab === 'brands' && (
+            <>
+              <div className="admin-form-group">
+                <label>Brand Name</label>
+                <input value={form.name || ''} onChange={(e) => handleChange('name', e.target.value)} required />
+              </div>
+              <div className="admin-form-group">
+                <label>Logo URL</label>
+                <input value={form.image || ''} onChange={(e) => handleChange('image', e.target.value)} required />
+              </div>
+              <div className="admin-form-group">
+                <label>Category</label>
+                <select value={form.category || 'panel'} onChange={(e) => handleChange('category', e.target.value)}>
+                  <option value="panel">Solar Panel</option>
+                  <option value="inverter">Inverter</option>
+                </select>
               </div>
             </>
           )}
