@@ -257,27 +257,63 @@
 }
 .footer-copy span { color: var(--blue-light); }
 .footer-developed-by {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--blue-light);
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.15) 0%, rgba(125, 211, 252, 0.1) 100%);
+  border: 1px solid rgba(14, 165, 233, 0.25);
   text-decoration: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  background: rgba(14, 165, 233, 0.1);
-  border: 1px solid rgba(14, 165, 233, 0.2);
-  transition: var(--transition);
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 .footer-developed-by:hover {
-  background: rgba(14, 165, 233, 0.2);
-  border-color: rgba(14, 165, 233, 0.4);
-  color: var(--white);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(14, 165, 233, 0.3);
+  border-color: rgba(14, 165, 233, 0.5);
 }
-.footer-developed-by svg {
-  flex-shrink: 0;
+.footer-developed-by .dev-name {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-light);
+  letter-spacing: 0.5px;
+}
+.footer-developed-by .dev-author {
+  font-size: 13px;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--blue-light), var(--white), var(--blue-light));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+.footer-developed-by .dev-spark {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--yellow);
+  border-radius: 50%;
+  right: 8px;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes pulse-glow {
+  0%, 100% { 
+    opacity: 0.4;
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.4);
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1.2);
+    box-shadow: 0 0 8px 2px rgba(255, 193, 7, 0.6);
+  }
 }
 
 @media (max-width: 1024px) {

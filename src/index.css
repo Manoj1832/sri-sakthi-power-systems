@@ -959,3 +959,94 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     font-size: 12px;
   }
 }
+
+/* --- Home Stats Section --- */
+.home-stats-section {
+  padding: 60px 0;
+  background: var(--dark);
+  position: relative;
+  overflow: hidden;
+}
+.home-stats-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(14, 165, 233, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(125, 211, 252, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+.home-stats-section.light {
+  background: var(--white);
+}
+.home-stats-section.light .home-stat-value {
+  color: var(--blue-text);
+}
+.home-stats-section.light .home-stat-label {
+  color: var(--text-muted);
+}
+.home-stats-section.light .home-stat-line {
+  background: var(--gray-mid);
+}
+.home-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  position: relative;
+  z-index: 1;
+}
+.home-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUpStats 0.6s ease forwards;
+}
+@keyframes fadeUpStats {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.home-stat-value {
+  font-family: var(--font-main);
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--blue-light) 0%, var(--white) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.home-stat-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+.home-stat-line {
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue), var(--yellow));
+  border-radius: 2px;
+  margin-top: 4px;
+}
+
+@media (max-width: 1024px) {
+  .home-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-stats-section { padding: 40px 0; }
+  .home-stat-value { font-size: 36px; }
+  .home-stat-label { font-size: 12px; letter-spacing: 1px; }
+}
