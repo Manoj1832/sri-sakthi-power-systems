@@ -6,10 +6,9 @@ interface HomeStatsProps {
 }
 
 const statsData = [
-  { label: 'Years Experience', value: 10, suffix: '+' },
+  { label: 'Years Experience', value: 9, suffix: '+' },
   { label: 'Projects Completed', value: 300, suffix: '+' },
-  { label: 'kW Installed', value: 1500, suffix: '+' },
-  { label: 'Happy Customers', value: 500, suffix: '+' },
+  { label: 'Partner Brands', value: 21, suffix: '+' },
 ]
 
 export default function HomeStats({ variant = 'dark' }: HomeStatsProps) {
