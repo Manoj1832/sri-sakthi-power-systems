@@ -2,16 +2,16 @@ import { Link } from 'react-router-dom'
 import './about.css'
 
 const trustBadges = [
-  { icon: '🏢', title: 'GST Registered', desc: 'GSTIN: 33KGKPS8891F2ZI' },
-  { icon: '⭐', title: 'Verified Dealer', desc: 'Authorised by top brands' },
-  { icon: '🛡️', title: 'Quality Assured', desc: 'ISO certified processes' },
+  { title: 'GST Registered', desc: 'GSTIN: 33KGKPS8891F2ZI' },
+  { title: 'Verified Dealer', desc: 'Authorised by top brands' },
+  { title: 'Quality Assured', desc: 'ISO certified processes' },
 ]
 
 const whyChooseUs = [
-  { icon: '✓', title: 'Expert Team', desc: 'Certified technicians with 9+ years experience' },
-  { icon: '✓', title: 'Top Brands', desc: 'Dealing with 21+ renowned solar brands' },
-  { icon: '✓', title: 'End-to-End Service', desc: 'From consultation to after-sales support' },
-  { icon: '✓', title: 'Transparent Pricing', desc: 'No hidden costs, upfront quotes' },
+  { title: 'Expert Team', desc: 'Certified technicians with 9+ years experience' },
+  { title: 'Top Brands', desc: 'Dealing with 21+ renowned solar brands' },
+  { title: 'End-to-End Service', desc: 'From consultation to after-sales support' },
+  { title: 'Transparent Pricing', desc: 'No hidden costs, upfront quotes' },
 ]
 
 export default function About() {
@@ -21,7 +21,7 @@ export default function About() {
         <div className="about-grid">
           <div className="about-img-wrap fade-up">
             <img
-              src="https://img.sanishtech.com/u/57a08e7158202ed14314e2584edf82cf.webp"
+              src="https://images.unsplash.com/photo-1509391366360-fe5ab41f176c?auto=format&fit=crop&q=80&w=1200"
               alt="Premium Solar Installation"
             />
             <div className="about-img-badge">
@@ -45,7 +45,9 @@ export default function About() {
             <div className="trust-badges">
               {trustBadges.map((badge, i) => (
                 <div key={i} className="trust-badge">
-                  <span className="trust-icon">{badge.icon}</span>
+                  <div className="trust-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  </div>
                   <div>
                     <div className="trust-title">{badge.title}</div>
                     <div className="trust-desc">{badge.desc}</div>
@@ -85,7 +87,9 @@ export default function About() {
           <div className="why-choose-grid">
             {whyChooseUs.map((item, i) => (
               <div key={i} className="why-choose-card fade-up" style={{ transitionDelay: `${i * 100}ms` }}>
-                <div className="why-choose-icon">{item.icon}</div>
+                <div className="why-choose-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
                 <div className="why-choose-content">
                   <h3>{item.title}</h3>
                   <p>{item.desc}</p>
