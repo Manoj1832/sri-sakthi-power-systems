@@ -20,7 +20,7 @@ const items = [
     textColor: "#fff",
     links: [
       { label: "Products", href: "/products" },
-      { label: "Our Portfolio", href: "/projects" }
+      { label: "Projects", href: "/projects" }
     ]
   },
   {

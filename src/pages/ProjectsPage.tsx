@@ -141,7 +141,7 @@ export default function ProjectsPage() {
       <main style={{ paddingTop: '76px', background: 'var(--dark)' }}>
         <div style={{ background: 'var(--dark)', padding: '80px 0 20px', textAlign: 'center' }}>
           <div className="container">
-            <p className="section-label fade-up" style={{ justifyContent: 'center' }}>Our Portfolio</p>
+            <p className="section-label fade-up" style={{ justifyContent: 'center' }}>Projects</p>
             <h1 className="section-heading light fade-up" style={{ transitionDelay: '0.1s' }}>Recent Projects</h1>
             <p className="fade-in" style={{ color: 'rgba(255,255,255,0.6)', marginTop: '16px', fontSize: '17px', maxWidth: '600px', margin: '16px auto 0', transitionDelay: '0.2s' }}>
               Swipe left or right to explore. Tap a card to view detailed information.
