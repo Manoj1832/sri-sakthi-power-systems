@@ -39,9 +39,12 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
       background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(4px)'
     }}>
       <div style={{
-        background: '#fff', padding: '32px', borderRadius: '12px',
-        width: '100%', maxWidth: '440px', position: 'relative',
-        boxShadow: '0 24px 48px rgba(0,0,0,0.2)'
+        background: '#fff', padding: '24px', borderRadius: '12px',
+        width: 'calc(100% - 32px)', maxWidth: '440px', position: 'relative',
+        boxShadow: '0 24px 48px rgba(0,0,0,0.2)',
+        boxSizing: 'border-box',
+        maxHeight: '90vh',
+        overflowY: 'auto'
       }}>
         <button 
           onClick={onClose}

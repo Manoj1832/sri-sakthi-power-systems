@@ -8,6 +8,7 @@ interface MasonryItem {
   height: number;
   label?: string;
   desc?: string;
+  contain?: boolean;
 }
 
 interface MasonryProps {
@@ -189,7 +190,14 @@ const Masonry = ({
           onMouseLeave={e => handleMouseLeave(e, item)}
         >
 
-          <div className="masonry-item-img" style={{ backgroundImage: `url(${item.img})` }}>
+          <div className="masonry-item-img" style={{ 
+            backgroundImage: `url(${item.img})`,
+            backgroundSize: item.contain ? 'contain' : 'cover',
+            backgroundColor: item.contain ? '#fff' : 'transparent',
+            backgroundOrigin: 'content-box',
+            backgroundRepeat: 'no-repeat',
+            padding: item.contain ? '32px' : '0'
+          }}>
             {colorShiftOnHover && (
               <div className="color-overlay" style={{
                 position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',

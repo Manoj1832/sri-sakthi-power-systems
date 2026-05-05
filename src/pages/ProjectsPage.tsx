@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import CircularGallery from '../components/CircularGallery'
 
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
@@ -110,6 +111,7 @@ export { loadProjects, saveProjects }
 export default function ProjectsPage() {
   useScrollAnimation()
   const [projects, setProjects] = useState(loadProjects())
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handle = () => setProjects(loadProjects())
@@ -121,40 +123,42 @@ export default function ProjectsPage() {
     }
   }, [])
 
+  const galleryItems = projects.map((p: any) => ({
+    image: p.image,
+    text: p.title,
+    id: p.id
+  }))
+
+  const handleItemClick = (item: any) => {
+    if (item && item.id) {
+      navigate(`/projects/${item.id}`)
+    }
+  }
+
   return (
     <>
       <Navbar />
-      <main style={{ paddingTop: '76px' }}>
-        <div style={{ background: 'var(--dark)', padding: '80px 0 60px', textAlign: 'center' }}>
+      <main style={{ paddingTop: '76px', background: 'var(--dark)' }}>
+        <div style={{ background: 'var(--dark)', padding: '80px 0 20px', textAlign: 'center' }}>
           <div className="container">
             <p className="section-label" style={{ justifyContent: 'center' }}>Our Portfolio</p>
             <h1 className="section-heading light">Recent Projects</h1>
             <p style={{ color: 'rgba(255,255,255,0.6)', marginTop: '16px', fontSize: '17px', maxWidth: '600px', margin: '16px auto 0' }}>
-              Take a look at some of our successful solar installations across Tamil Nadu and surrounding areas.
+              Swipe left or right to explore. Tap a card to view detailed information.
             </p>
           </div>
         </div>
 
-        <section style={{ padding: 'var(--pad-section) 0', background: 'var(--white)' }}>
-          <div className="container">
-            <div className="projects-grid-page">
-              {projects.map((p: typeof defaultProjects[0]) => (
-                <Link to={`/projects/${p.id}`} key={p.id} className="project-card fade-up">
-                  <div className="project-card-img">
-                    <img src={p.image} alt={p.title} />
-                  </div>
-                  <div className="project-card-body">
-                    <div className="project-card-location">{p.location}</div>
-                    <h3 className="project-card-title">{p.title}</h3>
-                    <p className="project-card-desc">{p.description}</p>
-                    <span className="project-card-link">View Details</span>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
+        <section style={{ position: 'relative', width: '100%', height: '70vh', minHeight: '500px', background: 'var(--dark)' }}>
+          <CircularGallery 
+            items={galleryItems} 
+            bend={3} 
+            textColor="#ffffff" 
+            borderRadius={0.05} 
+            scrollEase={0.02} 
+            onItemClick={handleItemClick}
+          />
         </section>
-
 
       </main>
       <Footer />

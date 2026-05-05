@@ -17,7 +17,7 @@ const steps = [
   {
     num: 'Step 03', title: 'Installation',
     desc: 'Certified technicians install the complete system with quality assurance.',
-    img: 'https://images.unsplash.com/photo-1509391366360-fe5ab41f176c?auto=format&fit=crop&q=80&w=600',
+    img: 'https://img.sanishtech.com/u/c3ad705c066a2634e55e35d98f95f426.webp',
     icon: 'https://cdn-icons-png.flaticon.com/48/1995/1995574.png',
   },
   {
@@ -42,9 +42,9 @@ export default function HowItWorks() {
           </Link>
         </div>
 
-        <div className="how-grid">
+        <div className="how-grid zigzag-grid">
           {steps.map((s, i) => (
-            <div className="how-card fade-up" key={i} style={{ transitionDelay: `${i * 80}ms` }}>
+            <div className={`how-card fade-up zigzag-item zigzag-${i % 2 === 0 ? 'top' : 'bottom'}`} key={i} style={{ transitionDelay: `${i * 80}ms` }}>
               <div className="how-card-img" style={{
                 backgroundImage: `url(${s.img})`,
                 backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative',
