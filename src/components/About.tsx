@@ -21,7 +21,7 @@ export default function About() {
         <div className="about-grid">
           <div className="about-img-wrap fade-up">
             <img
-              src="https://images.unsplash.com/photo-1509391366360-fe5ab41f176c?auto=format&fit=crop&q=80&w=1200"
+              src="https://kommodo.ai/i/VLNd3YWhwmZVVFgTLpdd"
               alt="Premium Solar Installation"
             />
             <div className="about-img-badge">
