@@ -6,16 +6,16 @@ import './sections.css'
 
 const products = [
   { id: '1',  name: 'Solar Panels',     desc: 'Mono & Poly crystalline panels from top brands',     img: '/panel.jpeg', height: 500 },
-  { id: '2',  name: 'Solar Inverters',   desc: 'OnGrid, Hybrid & Off-Grid inverters',               img: '/solar hybrid inverter.png', height: 350 },
+  { id: '2',  name: 'Solar Inverters',   desc: 'OnGrid, Hybrid & Off-Grid inverters',               img: '/solar-hybrid-inverter.png', height: 350 },
   { id: '3',  name: 'ACDB / DCDB',       desc: 'AC & DC distribution boxes for plant safety',       img: '/acdb-dcdb.jpg', height: 400 },
-  { id: '4',  name: 'Earthing Kit',      desc: 'Complete earthing solutions for protection',         img: '/earthing kit.jpeg', height: 450 },
+  { id: '4',  name: 'Earthing Kit',      desc: 'Complete earthing solutions for protection',         img: '/earthing-kit.jpeg', height: 450 },
   { id: '5',  name: 'Structure',         desc: 'MS & GI mounting structures for all roof types',     img: '/premium-instalation.jpg', height: 380 },
-  { id: '6',  name: 'OnGrid Plant',      desc: 'Grid-tied solar power plant with net metering',     img: '/on grid.webp', height: 520 },
+  { id: '6',  name: 'OnGrid Plant',      desc: 'Grid-tied solar power plant with net metering',     img: '/on-grid.webp', height: 520 },
   { id: '7',  name: 'Hybrid Plant',      desc: 'Solar + battery backup hybrid power systems',       img: '/hybrid.png', height: 360 },
   { id: '8',  name: 'Off-Grid Plant',    desc: 'Complete off-grid solar for remote locations',      img: '/shards.jpeg', height: 440 },
-  { id: '9',  name: 'Water Heater',      desc: 'Solar water heating for home & commercial use',     img: '/water heater.jpeg', height: 380 },
-  { id: '10', name: 'Solar Pumps',       desc: 'AC & DC motor solar pumping systems',               img: '/solar pump.jpeg', height: 460 },
-  { id: '11', name: 'Street Light',      desc: 'Integrated solar street lighting systems',          img: '/street light.jpeg', height: 500 },
+  { id: '9',  name: 'Water Heater',      desc: 'Solar water heating for home & commercial use',     img: '/water-heater.jpeg', height: 380 },
+  { id: '10', name: 'Solar Pumps',       desc: 'AC & DC motor solar pumping systems',               img: '/solar-pump.jpeg', height: 460 },
+  { id: '11', name: 'Street Light',      desc: 'Integrated solar street lighting systems',          img: '/street-light.jpeg', height: 500 },
   { id: '12', name: 'Solar Studs',       desc: 'Road safety solar stud lights',                     img: '/panel2.jpeg', height: 320 },
 ]
 const masonryItems = products.map(p => ({
