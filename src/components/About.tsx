@@ -21,7 +21,7 @@ export default function About() {
         <div className="about-grid">
           <div className="about-img-wrap fade-up">
             <img
-              src="/premium-instalation.jpg"
+              src="./premium-instalation.jpg"
               alt="Premium Solar Installation"
             />
             <div className="about-img-badge">

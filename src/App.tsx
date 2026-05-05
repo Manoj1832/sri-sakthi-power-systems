@@ -9,6 +9,7 @@ import ProjectDetailPage from './pages/ProjectDetailPage'
 import AdminLoginPage from './pages/AdminLoginPage'
 import AdminDashboard from './pages/AdminDashboard'
 import FloatingWhatsApp from './components/FloatingWhatsApp'
+import ScrollToTop from './components/ScrollToTop'
 
 function ProtectedRoute({ children }: { children: JSX.Element }) {
   const { isAuthenticated } = useAuth()
@@ -37,6 +38,7 @@ function AppRoutes() {
 export default function App() {
   return (
     <AuthProvider>
+      <ScrollToTop />
       <AppRoutes />
       <FloatingWhatsApp />
     </AuthProvider>
