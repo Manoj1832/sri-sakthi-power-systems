@@ -1,7 +1,51 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import BlurText from './BlurText'
 import QuoteModal from './QuoteModal'
 import './navbar-hero.css'
+
+function AnimatedCounter({ target = 300, suffix = '+' }: { target?: number; suffix?: string }) {
+  const [count, setCount] = useState(0)
+  const [isVisible, setIsVisible] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !isVisible) {
+          setIsVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.5 }
+    )
+    if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    if (!isVisible) return
+    const duration = 2000
+    const steps = 60
+    const increment = target / steps
+    let current = 0
+    const timer = setInterval(() => {
+      current += increment
+      if (current >= target) {
+        setCount(target)
+        clearInterval(timer)
+      } else {
+        setCount(Math.floor(current))
+      }
+    }, duration / steps)
+    return () => clearInterval(timer)
+  }, [isVisible, target])
+
+  return (
+    <span ref={ref} className="bento-num">
+      {count}{suffix}
+    </span>
+  )
+}
 
 export default function Hero() {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -48,7 +92,7 @@ export default function Hero() {
             
             {/* Top Right - Stats */}
             <div className="bento-item bento-text-card">
-              <div className="bento-num">300+</div>
+              <AnimatedCounter target={300} suffix="+" />
               <div className="bento-label">Projects successfully delivered in Tamil Nadu</div>
             </div>
 
