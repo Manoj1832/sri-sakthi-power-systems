@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vercel/node": "^5.7.15",
     "convex": "^1.37.0",
     "gsap": "^3.15.0",
     "lucide-react": "^0.446.0",
