@@ -14,7 +14,7 @@ export default function ContactPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     const msg = encodeURIComponent(
-      `Hi Sri Sakthi Power Systems!\n\nName: ${form.name}\nPhone: ${form.phone}\nEmail: ${form.email}\nProduct Interest: ${form.product}\nMessage: ${form.message}`
+      `Hello Sri Sakthi Power Systems,\n\nI am reaching out to request a premium consultation regarding your solar solutions.\n\n*Name:* ${form.name}\n*Phone:* ${form.phone}\n*Email:* ${form.email || 'N/A'}\n*Product Interest:* ${form.product || 'N/A'}\n*Message:* ${form.message || 'N/A'}\n\nPlease let me know when we can discuss this further.`
     )
     window.open(`https://wa.me/917358942468?text=${msg}`, '_blank')
     setSent(true)

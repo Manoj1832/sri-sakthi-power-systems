@@ -84,7 +84,7 @@ export default function ProjectDetailPage() {
                   ))}
 
                   <a
-                    href={`https://wa.me/917358942468?text=Hi%2C%20I'm%20interested%20in%20a%20${encodeURIComponent(project.type)}%20system%20like%20your%20${encodeURIComponent(project.title)}%20project.`}
+                    href={`https://wa.me/917358942468?text=Hello%20Sri%20Sakthi%20Power%20Systems.%20I%20am%20very%20interested%20in%20your%20premium%20${encodeURIComponent(project.type)}%20solutions%2C%20specifically%20similar%20to%20the%20${encodeURIComponent(project.title)}%20project.%20I%20would%20like%20to%20schedule%20a%20consultation%20and%20receive%20a%20customized%20quote.`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn btn-primary"

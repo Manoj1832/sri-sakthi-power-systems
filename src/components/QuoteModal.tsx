@@ -19,13 +19,14 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     
-    let message = `Hi, I am interested in ${productName || 'Solar Solutions'}.\n\n`
+    let message = `Hello Sri Sakthi Power Systems,\n\nI would like to request a premium quote and consultation for ${productName || 'your Solar Solutions'}.\n\n`
     message += `*Name:* ${formData.name}\n`
     message += `*Phone:* ${formData.phone}\n`
     message += `*Location:* ${formData.location}\n`
     if (formData.requirements) {
       message += `*Requirements:* ${formData.requirements}\n`
     }
+    message += `\nPlease advise on the next steps.`
 
     const encodedMessage = encodeURIComponent(message)
     window.open(`https://wa.me/917358942468?text=${encodedMessage}`, '_blank')

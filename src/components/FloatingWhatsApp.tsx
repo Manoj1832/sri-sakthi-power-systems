@@ -1,7 +1,7 @@
 export default function FloatingWhatsApp() {
   return (
     <a
-      href="https://wa.me/917358942468?text=Hi%2C%20I%20want%20a%20free%20solar%20quote"
+      href="https://wa.me/917358942468?text=Hello%20Sri%20Sakthi%20Power%20Systems.%20I%20would%20like%20to%20schedule%20a%20premium%20consultation%20and%20request%20a%20customized%20quote%20for%20a%20solar%20installation."
       target="_blank"
       rel="noopener noreferrer"
       style={{
