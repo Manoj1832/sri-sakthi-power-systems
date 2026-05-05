@@ -43,7 +43,7 @@ export default function Hero() {
           <div className="hero-bento fade-up" style={{ transitionDelay: '200ms' }}>
             {/* Top Left - Large Image */}
             <div className="bento-item bento-large">
-              <img className="bento-img" src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&q=80&w=800" alt="Solar Panels" loading="eager" fetchPriority="high" width="800" height="450" />
+              <img className="bento-img" src="/on grid.webp" alt="Solar Panels" loading="eager" fetchPriority="high" width="800" height="450" />
             </div>
             
             {/* Top Right - Stats */}

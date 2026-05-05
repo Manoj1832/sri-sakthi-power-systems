@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { AuthProvider, useAuth } from './context/AuthContext'
 import Home from './pages/Home'
 import ProductsPage from './pages/ProductsPage'
@@ -40,7 +40,13 @@ export default function App() {
     <AuthProvider>
       <ScrollToTop />
       <AppRoutes />
-      <FloatingWhatsApp />
+      <FloatingWhatsAppConditional />
     </AuthProvider>
   )
+}
+
+function FloatingWhatsAppConditional() {
+  const location = useLocation()
+  if (location.pathname.startsWith('/admin')) return null
+  return <FloatingWhatsApp />
 }
