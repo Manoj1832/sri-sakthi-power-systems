@@ -13,7 +13,7 @@ export function useScrollAnimation() {
       { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
     )
 
-    const elements = document.querySelectorAll('.fade-up')
+    const elements = document.querySelectorAll('.fade-up, .fade-in, .slide-right, .zoom-in')
     elements.forEach(el => observer.observe(el))
 
     return () => observer.disconnect()

@@ -35,11 +35,11 @@ export default function ProjectDetailPage() {
           <img src={allImages[activeImg]} alt={project.title} />
           <div className="project-detail-hero-content">
             <div className="container">
-              <Link to="/projects" style={{ color: 'var(--yellow)', fontSize: '14px', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
+              <Link to="/projects" className="fade-in" style={{ color: 'var(--yellow)', fontSize: '14px', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
                 ← Back to Projects
               </Link>
-              <p style={{ color: 'var(--yellow)', fontSize: '14px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '8px' }}>{project.location}</p>
-              <h1 style={{ fontFamily: 'var(--font-main)', fontWeight: 900, fontSize: 'clamp(28px, 5vw, 56px)', color: '#fff', lineHeight: 1.1 }}>{project.title}</h1>
+              <p className="fade-up" style={{ color: 'var(--yellow)', fontSize: '14px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '8px' }}>{project.location}</p>
+              <h1 className="fade-up" style={{ fontFamily: 'var(--font-main)', fontWeight: 900, fontSize: 'clamp(28px, 5vw, 56px)', color: '#fff', lineHeight: 1.1, transitionDelay: '0.1s' }}>{project.title}</h1>
             </div>
           </div>
         </div>
@@ -47,15 +47,15 @@ export default function ProjectDetailPage() {
         <section style={{ padding: 'var(--pad-section) 0', background: 'var(--white)' }}>
           <div className="container">
             <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '48px', alignItems: 'start' }}>
-              <div>
+              <div className="fade-up">
                 <h2 style={{ fontFamily: 'var(--font-main)', fontWeight: 700, fontSize: '22px', marginBottom: '16px' }}>Project Overview</h2>
                 <p style={{ fontSize: '16px', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: '32px' }}>{project.description}</p>
 
                 <h3 style={{ fontFamily: 'var(--font-main)', fontWeight: 700, fontSize: '18px', marginBottom: '16px' }}>Photo Gallery</h3>
-                <div style={{ borderRadius: 'var(--radius)', overflow: 'hidden', marginBottom: '16px', height: '400px' }}>
-                  <img src={allImages[activeImg]} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div className="zoom-in" style={{ borderRadius: 'var(--radius)', overflow: 'hidden', marginBottom: '16px', height: '400px' }}>
+                  <img src={allImages[activeImg]} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'var(--transition)' }} />
                 </div>
-                <div className="project-detail-gallery">
+                <div className="project-detail-gallery fade-up" style={{ transitionDelay: '0.2s' }}>
                   {allImages.map((img: string, i: number) => (
                     <img
                       key={i}
@@ -69,7 +69,7 @@ export default function ProjectDetailPage() {
               </div>
 
               <div>
-                <div style={{ background: 'var(--gray-light)', borderRadius: 'var(--radius)', padding: '32px', position: 'sticky', top: '100px' }}>
+                <div className="fade-up" style={{ background: 'var(--gray-light)', borderRadius: 'var(--radius)', padding: '32px', position: 'sticky', top: '100px', transitionDelay: '0.3s' }}>
                   <h3 style={{ fontFamily: 'var(--font-main)', fontWeight: 700, fontSize: '18px', marginBottom: '24px', color: 'var(--blue)' }}>Project Details</h3>
                   {[
                     { label: 'Capacity', value: project.capacity },
