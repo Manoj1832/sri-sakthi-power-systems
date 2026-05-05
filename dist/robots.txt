@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sri-sakthi-power-systems.vercel.app/sitemap.xml

@@ -43,7 +43,7 @@ export default function Hero() {
           <div className="hero-bento fade-up" style={{ transitionDelay: '200ms' }}>
             {/* Top Left - Large Image */}
             <div className="bento-item bento-large">
-              <img className="bento-img" src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&q=80&w=800" alt="Solar Panels" />
+              <img className="bento-img" src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&q=80&w=800" alt="Solar Panels" loading="eager" fetchPriority="high" width="800" height="450" />
             </div>
             
             {/* Top Right - Stats */}
@@ -54,7 +54,7 @@ export default function Hero() {
 
             {/* Middle Right - Small Image */}
             <div className="bento-item">
-              <img className="bento-img" src="/image.png" alt="Solar Setup" />
+              <img className="bento-img" src="/image.png" alt="Solar Setup" loading="lazy" width="400" height="300" />
             </div>
 
             {/* Bottom Left - Wide Info Card */}
@@ -70,7 +70,7 @@ export default function Hero() {
 
             {/* Bottom Right - Tall Image */}
             <div className="bento-item bento-tall">
-              <img className="bento-img" src="/Bottom Right - Tall Image.png" alt="Engineer" style={{ height: '100%' }} />
+              <img className="bento-img" src="/Bottom Right - Tall Image.png" alt="Solar Engineer at work" loading="lazy" style={{ height: '100%' }} width="400" height="600" />
             </div>
           </div>
         </div>

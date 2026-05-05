@@ -10,7 +10,14 @@ export default function Logo({ size = 'md' }: LogoProps) {
 
   return (
     <div style={{ display: 'flex', alignItems: 'center' }}>
-      <img src="/logo.png" alt="Sri Sakthi Power Systems" style={{ height: h * 1.5, width: 'auto', objectFit: 'contain' }} />
+      <img
+        src="/logo.png"
+        alt="Sri Sakthi Power Systems"
+        width={h * 1.5}
+        height={h * 1.5}
+        fetchPriority="high"
+        style={{ height: h * 1.5, width: 'auto', objectFit: 'contain' }}
+      />
     </div>
   )
 }
