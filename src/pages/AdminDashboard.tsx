@@ -381,19 +381,14 @@ export default function AdminDashboard() {
             <div className="admin-table">
               <table>
                 <thead>
-<tr>
-                      <td><strong>{p.title}</strong></td>
-                      <td>{p.location}</td>
-                      <td>{p.capacity}</td>
-                      <td>{p.type}</td>
-                      <td>{p.savingsFrom || p.savingsTo ? `₹${p.savingsFrom || 0} - ₹${p.savingsTo || 0}` : '-'}</td>
-                      <td>
-                        <div className="admin-actions">
-                          <button className="admin-btn-edit" onClick={() => { setEditingItem(p); setShowModal(true) }}>Edit</button>
-                          <button className="admin-btn-delete" onClick={() => handleDeleteProject(p.id)}>Delete</button>
-                        </div>
-                      </td>
-                    </tr>
+                  <tr>
+                    <th>Title</th>
+                    <th>Location</th>
+                    <th>Capacity</th>
+                    <th>Type</th>
+                    <th>Savings (₹/month)</th>
+                    <th>Actions</th>
+                  </tr>
                 </thead>
                 <tbody>
                   {projects.map(p => (
@@ -402,6 +397,7 @@ export default function AdminDashboard() {
                       <td>{p.location}</td>
                       <td>{p.capacity}</td>
                       <td>{p.type}</td>
+                      <td>{p.savingsFrom || p.savingsTo ? `₹${p.savingsFrom || 0} - ₹${p.savingsTo || 0}` : '-'}</td>
                       <td>
                         <div className="admin-actions">
                           <button className="admin-btn-edit" onClick={() => { setEditingItem(p); setShowModal(true) }}>Edit</button>
