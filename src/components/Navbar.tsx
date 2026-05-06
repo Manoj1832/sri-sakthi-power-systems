@@ -15,12 +15,13 @@ const items = [
     ]
   },
   {
-    label: "Solutions", 
+    label: "Browse",
     bgColor: "#0ea5e9", // Sky Blue - brand primary
     textColor: "#fff",
     links: [
+      { label: "Projects", href: "/projects" },
       { label: "Products", href: "/products" },
-      { label: "Projects", href: "/projects" }
+      { label: "Brands", href: "/products#brands" }
     ]
   },
   {

@@ -11,9 +11,27 @@ interface Project {
   description: string
   capacity: string
   type: string
-  savings: string
+  savingsFrom: string
+  savingsTo: string
   images: string[]
 }
+
+const PROJECT_TYPES = [
+  'OnGrid Solar',
+  'Hybrid Solar',
+  'OffGrid Solar',
+  'Solar Pump',
+  'Street Light',
+  'Water Heater',
+  'Solar Panel',
+  'Inverter',
+  'EPC Project'
+]
+
+const CAPACITY_OPTIONS = [
+  '1kW', '2kW', '3kW', '5kW', '7.5kW', '10kW', '15kW', '20kW', '25kW', '30kW', 
+  '50kW', '75kW', '100kW', '150kW', '200kW', '250kW', '300kW', '500kW', '1MW', 'Custom'
+]
 
 interface Product {
   id: string
@@ -159,7 +177,8 @@ export default function AdminDashboard() {
         description: data.description || '',
         capacity: data.capacity || '',
         type: data.type || '',
-        savings: data.savings || '',
+        savingsFrom: data.savingsFrom || '',
+        savingsTo: data.savingsTo || '',
         images: data.images ? (typeof data.images === 'string' ? (data.images as string).split(',').map((s: string) => s.trim()) : data.images) : [],
       }
       if (!newProject.images.length) newProject.images = [newProject.image]
@@ -331,13 +350,19 @@ export default function AdminDashboard() {
             <div className="admin-table">
               <table>
                 <thead>
-                  <tr>
-                    <th>Title</th>
-                    <th>Location</th>
-                    <th>Capacity</th>
-                    <th>Type</th>
-                    <th>Actions</th>
-                  </tr>
+<tr>
+                      <td><strong>{p.title}</strong></td>
+                      <td>{p.location}</td>
+                      <td>{p.capacity}</td>
+                      <td>{p.type}</td>
+                      <td>{p.savingsFrom || p.savingsTo ? `₹${p.savingsFrom || 0} - ₹${p.savingsTo || 0}` : '-'}</td>
+                      <td>
+                        <div className="admin-actions">
+                          <button className="admin-btn-edit" onClick={() => { setEditingItem(p); setShowModal(true) }}>Edit</button>
+                          <button className="admin-btn-delete" onClick={() => handleDeleteProject(p.id)}>Delete</button>
+                        </div>
+                      </td>
+                    </tr>
                 </thead>
                 <tbody>
                   {projects.map(p => (
@@ -391,10 +416,12 @@ export default function AdminDashboard() {
             <div className="admin-table">
               <table>
                 <thead>
-                  <tr>
-                    <th>Name</th>
+<tr>
+                    <th>Title</th>
                     <th>Location</th>
-                    <th>Rating</th>
+                    <th>Capacity</th>
+                    <th>Type</th>
+                    <th>Savings (₹/month)</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
@@ -508,16 +535,45 @@ function AdminModal({ tab, editingItem, onSave, onClose }: {
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                 <div className="admin-form-group">
                   <label htmlFor="project-capacity">Capacity</label>
-                  <input id="project-capacity" value={form.capacity || ''} onChange={(e) => handleChange('capacity', e.target.value)} />
+                  <select id="project-capacity" value={form.capacity || ''} onChange={(e) => handleChange('capacity', e.target.value)}>
+                    <option value="">Select Capacity</option>
+                    {CAPACITY_OPTIONS.map(c => (
+                      <option key={c} value={c}>{c}</option>
+                    ))}
+                  </select>
                 </div>
                 <div className="admin-form-group">
                   <label htmlFor="project-type">Type</label>
-                  <input id="project-type" value={form.type || ''} onChange={(e) => handleChange('type', e.target.value)} />
+                  <select id="project-type" value={form.type || ''} onChange={(e) => handleChange('type', e.target.value)}>
+                    <option value="">Select Type</option>
+                    {PROJECT_TYPES.map(t => (
+                      <option key={t} value={t}>{t}</option>
+                    ))}
+                  </select>
                 </div>
               </div>
               <div className="admin-form-group">
-                <label htmlFor="project-savings">Bill Savings</label>
-                <input id="project-savings" value={form.savings || ''} onChange={(e) => handleChange('savings', e.target.value)} />
+                <label>Bill Savings (₹/month)</label>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                  <div>
+                    <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>From</span>
+                    <input 
+                      type="text" 
+                      placeholder="₹ From" 
+                      value={form.savingsFrom || ''} 
+                      onChange={(e) => handleChange('savingsFrom', e.target.value)} 
+                    />
+                  </div>
+                  <div>
+                    <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>To</span>
+                    <input 
+                      type="text" 
+                      placeholder="₹ To" 
+                      value={form.savingsTo || ''} 
+                      onChange={(e) => handleChange('savingsTo', e.target.value)} 
+                    />
+                  </div>
+                </div>
               </div>
             </>
           )}

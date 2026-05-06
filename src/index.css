@@ -241,6 +241,70 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   :root { --pad-section: 56px; --pad-h: 20px; }
 }
 
+/* --- Admin Login Styles --- */
+.admin-login-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #f0f7ff 0%, #e0f2fe 50%, #f0f7ff 100%);
+}
+.admin-login-card {
+  max-width: 400px;
+  width: 100%;
+  padding: 40px;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+.admin-login-card h2 {
+  font-family: var(--font-main);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+.admin-login-card p {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+.admin-login-card .admin-form-group {
+  margin-bottom: 20px;
+}
+.admin-login-card .admin-form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+.admin-login-card .admin-form-group input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.admin-login-card .admin-form-group input:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15);
+}
+
+@media (max-width: 480px) {
+  .admin-login-card {
+    padding: 32px 24px;
+    border-radius: 20px;
+  }
+  .admin-login-wrap {
+    padding: 16px;
+    align-items: flex-start;
+    padding-top: 40px;
+  }
+}
+
 /* --- Admin Dashboard Styles --- */
 .admin-layout {
   display: flex;
