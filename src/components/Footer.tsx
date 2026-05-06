@@ -53,7 +53,7 @@ export default function Footer() {
               </a>
             </div>
             <a 
-              href="https://your-portfolio-link.com" 
+              href="manoj-s-portfolio-mocha.vercel.app" 
               target="_blank" 
               rel="noopener noreferrer"
               className="footer-developed-by"
