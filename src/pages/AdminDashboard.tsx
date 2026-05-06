@@ -136,6 +136,7 @@ export default function AdminDashboard() {
   const navigate = useNavigate()
   const [activeTab, setActiveTab] = useState<Tab>('projects')
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   const [projects, setProjects] = useState<Project[]>(loadProjects())
   const [products, setProducts] = useState<Product[]>(loadProducts())
@@ -146,7 +147,11 @@ export default function AdminDashboard() {
   const [editingItem, setEditingItem] = useState<any>(null)
 
   useEffect(() => {
-    if (!isAuthenticated) navigate('/admin')
+    if (!isAuthenticated) {
+      navigate('/admin')
+    } else {
+      setIsLoading(false)
+    }
   }, [isAuthenticated, navigate])
 
   useEffect(() => {
@@ -156,6 +161,32 @@ export default function AdminDashboard() {
       if (meta) meta.setAttribute('content', 'index, follow')
     }
   }, [])
+
+  if (isLoading) {
+    return (
+      <div style={{ 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'center', 
+        minHeight: '100vh',
+        background: '#f0f7ff'
+      }}>
+        <div style={{ textAlign: 'center' }}>
+          <div style={{ 
+            width: '48px', 
+            height: '48px', 
+            border: '4px solid #e2e8f0', 
+            borderTopColor: '#0ea5e9', 
+            borderRadius: '50%',
+            animation: 'spin 1s linear infinite',
+            margin: '0 auto 16px'
+          }} />
+          <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+          <p style={{ color: '#64748b', fontSize: '14px' }}>Loading dashboard...</p>
+        </div>
+      </div>
+    )
+  }
 
   if (!isAuthenticated) return null
 
