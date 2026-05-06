@@ -10,7 +10,9 @@ export interface Project {
   description: string
   capacity: string
   type: string
-  savings: string
+  savings?: string
+  savingsFrom?: string
+  savingsTo?: string
   images?: string[]
 }
 
